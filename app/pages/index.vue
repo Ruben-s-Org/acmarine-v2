@@ -50,24 +50,20 @@ const services = [
 <template>
   <div>
     <!-- HERO -->
-    <section class="px-4 md:px-8 py-16 md:py-24 lg:py-32">
-      <div class="container mx-auto max-w-[1180px]">
-        <h1 class="font-serif text-navy h1-hero">
-          The highest standard for <em class="text-brass not-italic" style="font-style: italic">extraordinary</em> vessels.
+    <section class="hero-v1">
+      <div class="hero-v1-inner">
+        <h1 class="hero-v1-h1">
+          The highest standard for <em>extraordinary</em> vessels.
         </h1>
-        <p class="text-base md:text-xl text-ink/78 leading-relaxed max-w-[60ch] mt-6 mb-10 font-light">
+        <p class="hero-v1-sub">
           Aldridge &amp; Charles is a private marine office. Management, brokerage, refit, charter, detailing, crew, engineering counsel, and every other matter a great yacht requires, handled by one office, one director, one telephone number. We grow by introduction and reputation.
         </p>
-        <div class="flex flex-wrap gap-3">
-          <button type="button" class="bg-navy text-ivory border border-navy hover:bg-navy-deep transition-colors px-7 py-4 text-sm tracking-wider" @click="openDialog()">
-            Request an Introduction
-          </button>
-          <a href="#services" class="text-navy border border-rule hover:border-navy hover:text-brass-deep transition-colors px-7 py-4 text-sm tracking-wider">
-            View Services
-          </a>
+        <div class="hero-v1-cta">
+          <button type="button" class="btn-v1-primary" @click="openDialog()">Request an Introduction</button>
+          <a href="#services" class="btn-v1-ghost">View Services</a>
         </div>
       </div>
-      <div class="container mx-auto max-w-[1180px] mt-20 h-px bg-rule" />
+      <div class="hero-v1-rule" aria-hidden="true"></div>
     </section>
 
     <!-- SERVICES -->
