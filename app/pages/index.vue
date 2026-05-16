@@ -56,7 +56,7 @@ const services = [
           The highest standard for <em>extraordinary</em> vessels.
         </h1>
         <p class="hero-v1-sub">
-          Aldridge &amp; Charles is a private marine office. Management, brokerage, refit, charter, detailing, crew, engineering counsel, and every other matter a great yacht requires, handled by one office, one director, one telephone number. We grow by introduction and reputation.
+          Aldridge &amp; Charles is a private marine office. Management, brokerage, refit, charter, detailing, crew, and every other matter a great yacht requires. We grow by introduction and reputation.
         </p>
         <div class="hero-v1-cta">
           <button type="button" class="btn-v1-primary" @click="openDialog()">Request an Introduction</button>

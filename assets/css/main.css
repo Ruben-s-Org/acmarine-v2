@@ -229,12 +229,14 @@
 .btn-contact:hover { background: #ebe5d6; color: #061528; }
 
 /* ============================================================
-   HERO — pixel-identical to v1, sized outside Tailwind preflight
+   HERO — dark (matches contact strip), sized outside Tailwind preflight
    ============================================================ */
 .hero-v1 {
   position: relative;
-  padding: clamp(3rem, 8vw, 8rem) clamp(1rem, 3.4vw, 2rem) clamp(2.6rem, 7vw, 6rem);
+  padding: clamp(3rem, 8vw, 8rem) clamp(1rem, 3.4vw, 2rem) clamp(3rem, 7vw, 6rem);
   overflow: hidden;
+  background: #0a1e3a;
+  color: #f5f1e8;
 }
 .hero-v1-inner { max-width: 1180px; margin: 0 auto; }
 .hero-v1-h1 {
@@ -244,7 +246,7 @@
   font-size: clamp(2.85rem, 11.4vw, 5.6rem);
   line-height: 1.03;
   letter-spacing: -0.012em;
-  color: #0a1e3a;
+  color: #f5f1e8;
   margin: clamp(0.6rem, 2vw, 1rem) 0 clamp(1.1rem, 2.6vw, 1.8rem);
   max-width: min(22ch, 100%);
   text-wrap: balance;
@@ -262,7 +264,7 @@
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   font-weight: 300;
-  color: rgba(26, 26, 26, 0.78);
+  color: rgba(245, 241, 232, 0.78);
   line-height: 1.65;
   margin: 0 0 clamp(1.6rem, 3.4vw, 2.4rem);
 }
@@ -281,11 +283,11 @@
   transition: background 0.2s, transform 0.2s, border-color 0.2s, color 0.2s;
   line-height: 1.2;
 }
-.btn-v1-primary { background: #0a1e3a; color: #f5f1e8; border: 1px solid #0a1e3a; }
-.btn-v1-primary:hover { background: #061528; transform: translateY(-1px); }
-.btn-v1-ghost { background: transparent; color: #0a1e3a; border: 1px solid rgba(10, 30, 58, 0.18); }
-.btn-v1-ghost:hover { border-color: #0a1e3a; color: #7a5e30; }
-.hero-v1-rule { max-width: 1180px; margin: clamp(2.5rem, 6vw, 5rem) auto 0; height: 1px; background: rgba(10, 30, 58, 0.18); }
+.btn-v1-primary { background: #ffffff; color: #0a1e3a; border: 1px solid #ffffff; }
+.btn-v1-primary:hover { background: #ebe5d6; color: #061528; transform: translateY(-1px); }
+.btn-v1-ghost { background: transparent; color: #f5f1e8; border: 1px solid rgba(245, 241, 232, 0.3); }
+.btn-v1-ghost:hover { border-color: #f5f1e8; color: #b08d57; }
+.hero-v1-rule { display: none; }
 
 /* Custom select chevron for native fallback (shadcn Select handles the rest) */
 select.native {
