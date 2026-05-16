@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 38 47% 94%;
+    --foreground: 217 70% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 217 70% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 70% 13%;
+    --primary: 217 70% 13%;
+    --primary-foreground: 38 47% 94%;
+    --secondary: 35 33% 88%;
+    --secondary-foreground: 217 70% 13%;
+    --muted: 35 33% 88%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 35 36% 52%;
+    --accent-foreground: 217 70% 13%;
+    --destructive: 351 100% 35%;
+    --destructive-foreground: 38 47% 94%;
+    --border: 35 33% 78%;
+    --input: 35 33% 78%;
+    --ring: 35 36% 36%;
+    --radius: 0;
+  }
+
+  body {
+    @apply bg-ivory text-ink antialiased;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif text-navy;
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  h1 em, h2 em { @apply text-brass not-italic; font-style: italic; }
+
+  input, textarea, select, button { font-size: 16px; }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans uppercase text-brass-deep;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    font-weight: 500;
+  }
+
+  .creed-item {
+    @apply font-serif italic text-navy pl-8 relative leading-snug;
+    font-size: 1.18rem;
+  }
+  .creed-item::before {
+    content: '\00A7';
+    @apply absolute left-0 top-0 text-brass not-italic;
+    font-size: 1.3rem;
+  }
+
+  /* Hero h1 utility for the giant clamp */
+  .h1-hero { font-size: clamp(2.85rem, 11.4vw, 5.6rem); line-height: 1.03; letter-spacing: -0.012em; }
+  .h2-section { font-size: clamp(2.85rem, 11.4vw, 5.6rem); line-height: 1.03; letter-spacing: -0.012em; }
+}
+
+/* Custom select chevron for native fallback (shadcn Select handles the rest) */
+select.native {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1L6 6L11 1' fill='none' stroke='%237a5e30' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.95rem center;
+  background-size: 12px 8px;
+  padding-right: 2.4rem;
+}
+
+/* Hide number spinners */
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
