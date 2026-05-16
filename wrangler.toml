@@ -1,0 +1,7 @@
+name = "acmarine-v2"
+compatibility_date = "2025-07-15"
+pages_build_output_dir = "dist"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "acmarine-images"
