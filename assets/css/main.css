@@ -71,6 +71,164 @@
 }
 
 /* ============================================================
+   SHARED TYPE — same scale as v1 for every section heading
+   ============================================================ */
+.h-section {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.85rem, 11.4vw, 5.6rem);
+  line-height: 1.03;
+  letter-spacing: -0.012em;
+  color: #0a1e3a;
+  text-wrap: balance;
+  max-width: min(22ch, 100%);
+  margin: 0;
+}
+.h-section em { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: #b08d57; }
+@media (max-width: 760px) {
+  .h-section { max-width: none; }
+}
+
+.h-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: #0a1e3a;
+  margin: 0;
+}
+
+.body-prose {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.78);
+  max-width: 64ch;
+}
+.body-prose-tight { font-size: 1rem; line-height: 1.65; }
+
+/* SECTION SCAFFOLD — same vertical rhythm as v1 */
+.section-pad { padding: clamp(3.5rem, 7vw, 6.5rem) clamp(1rem, 3.4vw, 2rem); }
+.section-pad-tight { padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1rem, 3.4vw, 2rem); }
+.section-inner { max-width: 1180px; margin: 0 auto; }
+.section-narrow { max-width: 880px; margin: 0 auto; }
+.section-head { margin-bottom: clamp(2rem, 5vw, 4rem); }
+
+/* ============================================================
+   SERVICES (homepage)
+   ============================================================ */
+.svc-strip {
+  background: #ebe5d6;
+  border-top: 1px solid rgba(10, 30, 58, 0.18);
+  border-bottom: 1px solid rgba(10, 30, 58, 0.18);
+}
+.svc-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 4rem;
+}
+@media (max-width: 760px) { .svc-grid { grid-template-columns: 1fr; gap: 0; } }
+.svc-item {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(10, 30, 58, 0.18);
+}
+.svc-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  color: #0a1e3a;
+  margin: 0 0 0.9rem;
+  font-weight: 400;
+}
+.svc-item p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.74);
+  max-width: 42ch;
+  margin: 0 0 1.2rem;
+  font-weight: 300;
+}
+.svc-inquire {
+  display: inline-block;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #7a5e30;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(122, 94, 48, 0.35);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.svc-inquire:hover { color: #0a1e3a; text-decoration-color: #b08d57; }
+
+/* APPROACH creed list */
+.creed-list { list-style: none; padding: 0; margin: 3rem 0 0; display: grid; gap: 1rem; }
+.creed-list li {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.5;
+  color: #0a1e3a;
+  padding-left: 2rem;
+  position: relative;
+}
+.creed-list li::before {
+  content: '\00A7';
+  position: absolute; left: 0; top: 0.1em;
+  font-style: normal;
+  color: #b08d57;
+  font-size: 1.3rem;
+}
+
+/* CONTACT (dark) */
+.contact-strip {
+  background: #0a1e3a;
+  color: #f5f1e8;
+  border-top: 1px solid rgba(10, 30, 58, 0.18);
+}
+.contact-strip .h-section,
+.contact-strip .h-sub { color: #f5f1e8; }
+.contact-strip .body-prose { color: rgba(245, 241, 232, 0.78); max-width: 56ch; }
+.contact-strip .eyebrow { color: #b08d57; }
+.contact-strip .direct {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(245, 241, 232, 0.78);
+  margin-top: 2.6rem;
+}
+.contact-strip .direct a {
+  color: #f5f1e8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #b08d57;
+}
+.btn-contact {
+  display: inline-block;
+  background: #ffffff;
+  color: #0a1e3a;
+  border: 1px solid #ffffff;
+  padding: 1.1rem 2.2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-contact:hover { background: #ebe5d6; color: #061528; }
+
+/* ============================================================
    HERO — pixel-identical to v1, sized outside Tailwind preflight
    ============================================================ */
 .hero-v1 {
