@@ -130,15 +130,8 @@ async function remove(l: Listing) {
   <div class="min-h-screen bg-ivory-soft">
     <header class="bg-ivory border-b border-rule px-6 py-4 flex justify-between items-center">
       <NuxtLink to="/" class="flex items-center gap-3 text-navy" aria-label="Aldridge and Charles Marine">
-        <svg viewBox="0 0 64 64" class="w-8 h-8" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1" />
-          <path d="M22 22 L32 44 L42 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M28 22 L36 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-        </svg>
-        <span class="flex flex-col leading-none">
-          <span class="font-serif font-medium text-base">Aldridge &amp; Charles</span>
-          <span class="font-sans text-[0.66rem] uppercase mt-1 text-brass-deep" style="letter-spacing: 0.36em">Office</span>
-        </span>
+        <img src="/img/logo.png" alt="Aldridge & Charles Marine" width="469" height="144" style="height: 28px; width: auto" />
+        <span class="font-sans text-[0.6rem] uppercase text-brass-deep ml-1" style="letter-spacing: 0.36em">Office</span>
       </NuxtLink>
       <Button v-if="authed" variant="outline" size="sm" @click="logout">Sign out</Button>
     </header>
