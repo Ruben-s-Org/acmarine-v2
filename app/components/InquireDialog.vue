@@ -14,7 +14,7 @@ const note = ref('')
 const submitting = ref(false)
 
 const title = computed(() => {
-  if (service.value) return `${service.value}. Inquire.`
+  if (service.value) return `${service.value}.`
   if (listingSlug.value) return 'Request a viewing.'
   return 'Write to the office.'
 })
