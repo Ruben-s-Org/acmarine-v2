@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Badge } from '~/components/ui/badge'
 import type { Article } from '~~/shared/types'
+import { pickYachtPhoto } from '~~/shared/yacht-photos'
 
 useSeoMeta({
   title: 'Articles. Aldridge & Charles Marine.',
@@ -10,6 +11,7 @@ useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.com/articles' }] })
 
 const { data } = await useFetch<{ articles: Article[] }>('/api/articles')
 const articles = computed(() => data.value?.articles || [])
+function imageFor(a: Article) { return a.image_url || pickYachtPhoto(a.slug) }
 </script>
 
 <template>
@@ -26,7 +28,7 @@ const articles = computed(() => data.value?.articles || [])
       <div v-if="articles.length" class="flex flex-wrap justify-center gap-6 md:gap-8">
         <NuxtLink v-for="a in articles" :key="a.slug" :to="`/articles/${a.slug}`" class="block flex-1 min-w-[280px] max-w-[420px] bg-white border border-rule hover:border-brass hover:-translate-y-1 transition-all">
           <div class="relative aspect-[4/3] bg-navy overflow-hidden">
-            <img v-if="a.image_url" :src="a.image_url" :alt="a.title" loading="lazy" class="w-full h-full object-cover">
+            <img :src="imageFor(a)" :alt="a.title" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="p-5 md:p-6">
             <p class="text-[0.7rem] uppercase tracking-widest text-brass-deep mb-2">{{ a.category || 'Article' }} · {{ (a.published_at || a.created_at || '').slice(0, 10) }}</p>

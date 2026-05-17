@@ -15,7 +15,7 @@ const links = [
         <img src="/img/logo.png" alt="Aldridge & Charles Marine" width="469" height="144" class="brightness-0 invert" style="height: 44px; width: auto" />
       </NuxtLink>
       <nav class="flex justify-center gap-6 flex-wrap" aria-label="Footer">
-        <NuxtLink v-for="l in links" :key="l.href" :to="l.href" class="text-xs uppercase tracking-wider text-brass hover:text-ivory transition-colors">
+        <NuxtLink v-for="l in links" :key="l.href" :to="l.href" class="font-serif text-sm tracking-wide text-brass hover:text-ivory transition-colors cursor-pointer">
           {{ l.label }}
         </NuxtLink>
       </nav>

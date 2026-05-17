@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink to="/" class="inline-flex items-center no-underline" aria-label="Aldridge and Charles Marine">
+  <NuxtLink to="/" class="inline-flex items-center no-underline cursor-pointer" aria-label="Aldridge and Charles Marine">
     <img
       v-if="wide"
       src="/img/logo-wide.png"

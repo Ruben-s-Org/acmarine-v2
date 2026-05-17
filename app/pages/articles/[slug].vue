@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useInquire } from '~/composables/useInquire'
+import { pickYachtPhoto } from '~~/shared/yacht-photos'
 
 const route = useRoute()
 const slug = String(route.params.slug)
@@ -7,6 +8,7 @@ const { data } = await useFetch<{ article: any }>(`/api/articles/${slug}`)
 const a = computed(() => data.value?.article)
 if (!a.value) throw createError({ statusCode: 404, statusMessage: 'Not found', fatal: true })
 
+const heroImg = computed(() => a.value.image_url || pickYachtPhoto(a.value.slug))
 const { openDialog } = useInquire()
 const canonical = `https://acmarine.com/articles/${a.value.slug}`
 
@@ -53,8 +55,8 @@ useHead({
         <p class="font-serif italic text-lg md:text-2xl text-ink/80 max-w-[56ch] leading-snug">{{ a.description }}</p>
       </header>
 
-      <figure v-if="a.image_url" class="mb-10">
-        <img :src="a.image_url" :alt="a.title" width="1200" height="800" class="w-full aspect-[3/2] object-cover">
+      <figure class="mb-10">
+        <img :src="heroImg" :alt="a.title" width="1200" height="800" class="w-full aspect-[3/2] object-cover">
       </figure>
 
       <div class="article-body text-base md:text-lg leading-loose text-ink/86" v-html="a.content" />
