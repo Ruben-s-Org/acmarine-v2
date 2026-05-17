@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose } from '~/components/ui/dialog'
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '~/components/ui/dialog'
 import { Input } from '~/components/ui/input'
 import { Textarea } from '~/components/ui/textarea'
 import { Label } from '~/components/ui/label'
 import { Button } from '~/components/ui/button'
-import { X } from 'lucide-vue-next'
 import { useInquire } from '~/composables/useInquire'
 
 const { open, listingSlug, service, closeDialog } = useInquire()
@@ -59,9 +58,6 @@ async function submit(e: Event) {
 <template>
   <Dialog v-model:open="open">
     <DialogContent class="bg-ivory-soft border-0 max-w-[560px] p-0 shadow-2xl">
-      <button type="button" class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center text-navy hover:text-brass-deep" @click="closeDialog" aria-label="Close">
-        <X class="w-5 h-5" />
-      </button>
       <div class="p-8">
         <p class="eyebrow mb-3">Inquire</p>
         <DialogTitle class="font-serif text-3xl text-navy mb-2">{{ title }}</DialogTitle>
