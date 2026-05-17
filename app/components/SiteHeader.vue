@@ -18,7 +18,7 @@ const nav = [
 <template>
   <header class="sticky top-0 z-40 backdrop-blur-md bg-ivory/85 border-b border-rule">
     <div class="container mx-auto flex items-center justify-between gap-4 py-2.5 px-4 lg:px-6">
-      <BrandMark wide />
+      <BrandMark wide :height="16" />
 
       <nav class="hidden md:flex items-center gap-9" aria-label="Primary">
         <NuxtLink v-for="item in nav" :key="item.href" :to="item.href" class="text-sm tracking-wide text-navy hover:text-brass-deep transition-colors">
