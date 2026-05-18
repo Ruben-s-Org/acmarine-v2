@@ -32,8 +32,11 @@ export interface Inquiry {
   id: string
   name: string
   email: string
+  phone: string
   message: string
+  service: string | null
   listing_slug: string | null
+  listing_name: string | null
   created_at: string
 }
 

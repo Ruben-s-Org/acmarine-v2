@@ -1,8 +1,37 @@
 import type { H3Event } from 'h3'
 
+interface InquiryPayload {
+  name: string
+  email: string
+  phone: string
+  message: string
+  service?: string | null
+  listing_slug?: string | null
+  listing_name?: string | null
+}
+
+function humanizeSlug(slug: string): string {
+  // my-lavender -> M/Y Lavender, sy-aurora -> S/Y Aurora, otherwise Title Case
+  if (/^my-/.test(slug)) return 'M/Y ' + titleCase(slug.slice(3))
+  if (/^sy-/.test(slug)) return 'S/Y ' + titleCase(slug.slice(3))
+  return titleCase(slug)
+}
+function titleCase(s: string): string {
+  return s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+}
+
+function buildSubject(p: InquiryPayload): string {
+  let tag = 'Office'
+  if (p.listing_name) tag = p.listing_name
+  else if (p.listing_slug) tag = humanizeSlug(p.listing_slug)
+  else if (p.service) tag = p.service
+  const action = p.listing_name || p.listing_slug ? 'Viewing request' : 'New inquiry'
+  return `[${tag}] ${action} from ${p.name}`
+}
+
 export async function sendInquiryEmail(
   event: H3Event,
-  payload: { name: string; email: string; message: string; listing_slug: string | null },
+  payload: InquiryPayload,
 ): Promise<{ ok: boolean; status?: number; error?: string }> {
   const env = (event.context as any)?.cloudflare?.env || {}
   const apiKey = env.MAILGUN_API_KEY
@@ -12,29 +41,30 @@ export async function sendInquiryEmail(
   const from = env.MAILGUN_FROM || `Aldridge & Charles Marine <office@${domain}>`
   if (!apiKey || !domain || !to) return { ok: false, error: 'mailer not configured' }
 
-  const subject = payload.listing_slug
-    ? `New inquiry: ${payload.listing_slug} — ${payload.name}`
-    : `New inquiry — ${payload.name}`
+  const sourceLine = payload.listing_name || (payload.listing_slug ? humanizeSlug(payload.listing_slug) : '')
+    || payload.service || 'Office (generic)'
 
   const lines = [
     `From the inquiry form on acmarine.com.`,
     ``,
+    `Source:  ${sourceLine}`,
     `Name:    ${payload.name}`,
-    `Email:   ${payload.email}`,
+    payload.email ? `Email:   ${payload.email}` : '',
+    payload.phone ? `Phone:   ${payload.phone}` : '',
     payload.listing_slug ? `Vessel:  ${payload.listing_slug}` : '',
     ``,
     `Message:`,
     payload.message,
     ``,
     `--`,
-    `Reply directly to ${payload.email}.`,
+    payload.email ? `Reply directly to ${payload.email}.` : payload.phone ? `Call back on ${payload.phone}.` : '',
   ].filter(Boolean).join('\n')
 
   const form = new URLSearchParams()
   form.set('from', from)
   form.set('to', to)
-  form.set('h:Reply-To', payload.email)
-  form.set('subject', subject)
+  if (payload.email) form.set('h:Reply-To', payload.email)
+  form.set('subject', buildSubject(payload))
   form.set('text', lines)
 
   const url = `${base.replace(/\/+$/, '')}/v3/${domain}/messages`
@@ -47,12 +77,10 @@ export async function sendInquiryEmail(
     })
     if (!res.ok) {
       const t = await res.text().catch(() => '')
-      console.error('Mailgun error', res.status, t.slice(0, 200))
       return { ok: false, status: res.status, error: t.slice(0, 200) }
     }
     return { ok: true, status: res.status }
   } catch (err: any) {
-    console.error('Mailgun fetch failed', err?.message)
     return { ok: false, error: err?.message }
   }
 }

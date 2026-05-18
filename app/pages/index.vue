@@ -36,14 +36,10 @@ useHead({
 })
 
 const services = [
-  { name: 'Yacht Management', short: 'Management', body: "Flag, finance, compliance, payroll, insurance. We act as the principal's shoreside office, removing every operational decision that should not reach the saloon." },
   { name: 'Brokerage & Acquisition', short: 'Brokerage', body: 'Off-market vessels, selectively presented. Sea trials in our own time. Surveys we trust. A purchase process measured in months, not weeks.' },
-  { name: 'Refit & Project Oversight', short: 'Refit', body: "Cosmetic refinishment through engineering re-power. We sit shipyard-side, owner's representative, until the launch is right and the paperwork is closed." },
+  { name: 'Charter Programmes', short: 'Charter', body: 'Itineraries shaped to the principal, hospitality directed by people who have set the table themselves. Guests welcomed by name, never by spreadsheet.' },
   { name: 'Crew Placement', short: 'Crew', body: 'Captains, engineers, chefs, stewards, deckhands. People we have known for two decades or vetted before we put them forward.' },
   { name: 'Detailing & Daily Stewardship', short: 'Detailing', body: 'Varnish, paint, leather, teak, polish, deep wash and rinse. The hand work that decides whether a vessel ages with grace or with age.' },
-  { name: 'Charter Programmes', short: 'Charter', body: 'Itineraries shaped to the principal, hospitality directed by people who have set the table themselves. Guests welcomed by name, never by spreadsheet.' },
-  { name: 'Engineering & Technical Counsel', short: 'Engineering', body: "Re-power studies, propulsion modelling, electronics, classification. We speak the yard's language and translate it plainly to the office." },
-  { name: 'Berths, Transits & Concierge', short: 'Concierge', body: 'Moorings reserved, customs handled, transits planned, provisions waiting at the passerelle. A telephone number that does not change.' },
 ]
 </script>
 
@@ -56,7 +52,7 @@ const services = [
           The highest standard for <em>extraordinary</em> vessels.
         </h1>
         <p class="hero-v1-sub">
-          Aldridge &amp; Charles is a private marine office. Management, brokerage, refit, charter, detailing, crew, and every other matter a great yacht requires. We grow by introduction and reputation.
+          A private marine office for the owners of significant vessels. Brokerage, charter, crew, and the daily stewardship that keeps a great yacht in the state she deserves. We grow by introduction and by reputation.
         </p>
         <div class="hero-v1-cta">
           <button type="button" class="btn-v1-primary" @click="openDialog()">Request an Introduction</button>
@@ -71,9 +67,9 @@ const services = [
       <div class="section-inner">
         <div class="section-head">
           <p class="eyebrow">Services</p>
-          <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem)">Eight practices.</h2>
+          <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem)">Four practices.</h2>
           <p class="body-prose" style="margin-top: clamp(1rem, 2.4vw, 1.6rem); max-width: 56ch">
-            Trust earned by repetition. Reliability proved by record. Every service a great yacht requires, delivered by the same office, on the same telephone, in every time zone she sails.
+            Trust earned by repetition. Reliability proved by record. The four services a great yacht requires most, delivered by the same office, on the same telephone, in every time zone she sails.
           </p>
         </div>
         <div class="svc-grid">

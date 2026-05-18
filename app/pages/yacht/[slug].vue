@@ -122,7 +122,7 @@ useHead({
           <p v-if="l.short" class="text-base text-ink/78 max-w-[48ch] my-4 leading-relaxed">{{ l.short }}</p>
 
           <div class="flex gap-3 flex-wrap mt-2">
-            <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-5 py-3 text-sm tracking-wider" @click="openDialog({ listingSlug: l.slug })">Request a Viewing</button>
+            <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-5 py-3 text-sm tracking-wider" @click="openDialog({ listingSlug: l.slug, listingName: l.name })">Request a Viewing</button>
             <a :href="`mailto:office@acmarine.com?subject=${encodeURIComponent(l.name)}`" class="text-navy border border-rule hover:border-navy px-5 py-3 text-sm tracking-wider">Email the office</a>
           </div>
         </div>

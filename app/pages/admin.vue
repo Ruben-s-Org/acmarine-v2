@@ -187,11 +187,15 @@ async function remove(l: Listing) {
               <div class="flex justify-between items-baseline flex-wrap gap-2 mb-2">
                 <div>
                   <span class="font-serif text-lg text-navy">{{ e.name }}</span>
-                  <span class="text-sm text-ink/60"> · <a :href="`mailto:${e.email}`" class="text-brass-deep">{{ e.email }}</a></span>
+                  <span v-if="e.email" class="text-sm text-ink/60"> · <a :href="`mailto:${e.email}`" class="text-brass-deep">{{ e.email }}</a></span>
+                  <span v-if="e.phone" class="text-sm text-ink/60"> · <a :href="`tel:${e.phone}`" class="text-brass-deep">{{ e.phone }}</a></span>
                 </div>
                 <span class="text-xs text-ink/50">{{ new Date(e.created_at).toLocaleString() }}</span>
               </div>
-              <p v-if="e.listing_slug" class="text-sm italic text-ink/60 mb-2">Re: <NuxtLink :to="`/yacht/${e.listing_slug}`" target="_blank" class="text-brass-deep">{{ e.listing_slug }}</NuxtLink></p>
+              <p v-if="(e as any).listing_name || e.listing_slug || (e as any).service" class="text-sm italic text-ink/60 mb-2">
+                <span v-if="(e as any).service">Source: <span class="text-brass-deep">{{ (e as any).service }}</span></span>
+                <span v-else-if="(e as any).listing_name || e.listing_slug">Re: <NuxtLink :to="`/yacht/${e.listing_slug}`" target="_blank" class="text-brass-deep">{{ (e as any).listing_name || e.listing_slug }}</NuxtLink></span>
+              </p>
               <p class="text-base text-ink/82 whitespace-pre-wrap">{{ e.message }}</p>
             </div>
           </div>
