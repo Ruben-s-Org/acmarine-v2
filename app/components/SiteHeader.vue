@@ -26,7 +26,7 @@ const nav = [
         </NuxtLink>
         <button
           type="button"
-          class="border border-navy text-navy hover:bg-navy hover:text-ivory px-4 py-2 text-sm transition-colors"
+          class="border border-navy bg-navy text-ivory hover:bg-navy-deep px-4 py-2 text-sm transition-colors"
           @click="openDialog()"
         >
           Inquire
