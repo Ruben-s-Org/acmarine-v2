@@ -293,6 +293,11 @@
     filter: drop-shadow(0 10px 24px rgba(0,0,0,0.35));
   }
 }
+
+@media (min-width: 761px) {
+  .hero-v1 { overflow: visible; }
+  .hero-v1-boat { margin-bottom: -35px; }
+}
 @media (max-width: 760px) {
   .hero-v1-h1, .hero-v1-sub, .hero-v1-cta { position: relative; z-index: 2; }
 }
