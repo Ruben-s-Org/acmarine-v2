@@ -48,6 +48,7 @@ const services = [
     <!-- HERO -->
     <section class="hero-v1">
       <div class="hero-v1-inner">
+        <img src="/img/boat.png" alt="" class="hero-v1-boat-mobile" width="2400" height="1792" loading="eager" decoding="async" />
         <h1 class="hero-v1-h1">
           The highest standard for <em>extraordinary</em> vessels.
         </h1>
