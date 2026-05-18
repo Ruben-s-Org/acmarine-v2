@@ -1,7 +1,15 @@
-name = "acmarine-v2"
+name = "acmarine"
+main = "./.output/server/index.mjs"
 compatibility_date = "2025-07-15"
-pages_build_output_dir = "dist"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./.output/public"
+binding = "ASSETS"
 
 [[r2_buckets]]
 binding = "IMAGES"
 bucket_name = "acmarine-images"
+
+[vars]
+# Secrets (MAILGUN_*, ADMIN_PASSWORD, SESSION_SECRET) are set via `wrangler secret put`.
