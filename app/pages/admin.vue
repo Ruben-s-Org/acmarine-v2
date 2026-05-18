@@ -7,7 +7,7 @@ import { Button } from '~/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select'
 import { Dialog, DialogContent, DialogTitle } from '~/components/ui/dialog'
 import { Badge } from '~/components/ui/badge'
-import type { Listing, Inquiry } from '~~/shared/types'
+import type { Listing, Inquiry, Article } from '~~/shared/types'
 
 useHead({ title: 'Office. Aldridge & Charles Marine.' })
 definePageMeta({ layout: 'admin' })
@@ -15,22 +15,28 @@ definePageMeta({ layout: 'admin' })
 const authed = ref(false)
 const password = ref('')
 const loginErr = ref('')
-const tab = ref<'listings' | 'inquiries'>('listings')
+const tab = ref<'listings' | 'articles' | 'inquiries'>('listings')
 const listings = ref<Listing[]>([])
 const inquiries = ref<Inquiry[]>([])
+const articles = ref<Article[]>([])
 const dialogOpen = ref(false)
+const articleDialogOpen = ref(false)
 const note = ref('')
+const articleNote = ref('')
 const submitting = ref(false)
+const articleSubmitting = ref(false)
 
 const form = reactive<Partial<Listing> & { _hero_file?: File | null; _gallery_files?: FileList | null; _specs_text?: string; _gallery_text?: string }>({
   status: 'available',
 })
 
+const articleForm = reactive<Partial<Article> & { _hero_file?: File | null; _keywords_text?: string; _original_slug?: string }>({})
+
 async function checkAuth() {
   try {
     const r: any = await $fetch('/api/admin/whoami')
     authed.value = !!r.authenticated
-    if (authed.value) { loadListings(); loadInquiries() }
+    if (authed.value) { loadListings(); loadInquiries(); loadArticles() }
   } catch { authed.value = false }
 }
 checkAuth()
@@ -43,6 +49,7 @@ async function login() {
     password.value = ''
     loadListings()
     loadInquiries()
+    loadArticles()
   } catch {
     loginErr.value = 'Incorrect key.'
   }
@@ -60,6 +67,12 @@ async function loadInquiries() {
   try {
     const r: any = await $fetch('/api/inquiries')
     inquiries.value = r.inquiries || []
+  } catch {}
+}
+async function loadArticles() {
+  try {
+    const r: any = await $fetch('/api/articles')
+    articles.value = r.articles || []
   } catch {}
 }
 
@@ -124,6 +137,61 @@ async function remove(l: Listing) {
   await $fetch(`/api/listings/${l.id}`, { method: 'DELETE' })
   loadListings()
 }
+
+function openNewArticle() {
+  Object.assign(articleForm, {
+    slug: '', title: '', seo_title: '', description: '', category: 'Brokerage',
+    image_url: '', content: '', _hero_file: null, _keywords_text: '',
+    _original_slug: '', published_at: '',
+  })
+  articleNote.value = ''
+  articleDialogOpen.value = true
+}
+function openEditArticle(a: Article) {
+  Object.assign(articleForm, {
+    ...a,
+    _hero_file: null,
+    _keywords_text: (a.keywords || []).join(', '),
+    _original_slug: a.slug,
+  })
+  articleNote.value = ''
+  articleDialogOpen.value = true
+}
+async function saveArticle() {
+  if (!articleForm.title) { articleNote.value = 'Title required.'; return }
+  if (!articleForm.content) { articleNote.value = 'Content required.'; return }
+  articleSubmitting.value = true
+  articleNote.value = 'Saving.'
+  try {
+    let image_url = articleForm.image_url
+    if (articleForm._hero_file) image_url = await uploadFile(articleForm._hero_file)
+    const keywords = (articleForm._keywords_text || '').split(',').map(s => s.trim()).filter(Boolean)
+    const payload: Partial<Article> = {
+      slug: articleForm._original_slug || articleForm.slug || undefined,
+      title: articleForm.title,
+      seo_title: articleForm.seo_title || undefined,
+      description: articleForm.description,
+      category: articleForm.category,
+      keywords: keywords.length ? keywords : undefined,
+      image_url: image_url || undefined,
+      content: articleForm.content,
+      published_at: articleForm.published_at || undefined,
+    }
+    await $fetch('/api/articles', { method: 'POST', body: payload })
+    articleDialogOpen.value = false
+    articleNote.value = ''
+    loadArticles()
+  } catch (e: any) {
+    articleNote.value = `Save failed: ${e.statusMessage || e.message}`
+  } finally {
+    articleSubmitting.value = false
+  }
+}
+async function removeArticle(a: Article) {
+  if (!confirm(`Delete article "${a.title}"? This cannot be undone.`)) return
+  await $fetch(`/api/articles/${a.slug}`, { method: 'DELETE' })
+  loadArticles()
+}
 </script>
 
 <template>
@@ -154,7 +222,7 @@ async function remove(l: Listing) {
 
       <div v-else>
         <div class="flex border-b border-rule mb-10">
-          <button v-for="t in ['listings','inquiries']" :key="t" :class="['px-6 py-3 text-sm uppercase tracking-widest border-b-2 transition-colors', tab === t ? 'border-brass text-navy' : 'border-transparent text-ink/50 hover:text-navy']" @click="tab = t as any">{{ t }}</button>
+          <button v-for="t in ['listings','articles','inquiries']" :key="t" :class="['px-6 py-3 text-sm uppercase tracking-widest border-b-2 transition-colors', tab === t ? 'border-brass text-navy' : 'border-transparent text-ink/50 hover:text-navy']" @click="tab = t as any">{{ t }}</button>
         </div>
 
         <section v-if="tab === 'listings'">
@@ -174,6 +242,29 @@ async function remove(l: Listing) {
               <div class="flex gap-2">
                 <Button variant="outline" size="sm" @click="openEdit(l)">Edit</Button>
                 <Button variant="destructive" size="sm" @click="remove(l)">Delete</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section v-if="tab === 'articles'">
+          <div class="flex justify-between items-center mb-6 flex-wrap gap-3">
+            <h1 class="font-serif text-2xl md:text-3xl text-navy">Articles</h1>
+            <Button class="bg-navy text-ivory hover:bg-navy-deep" @click="openNewArticle">New article</Button>
+          </div>
+          <p class="text-xs text-ink/55 mb-6 max-w-[68ch] leading-relaxed">Manually seeded only. Save auto&middot;pings the sitemap to Google and submits the article URL to the Indexing API. Content accepts markdown ( <code>#</code> heading, <code>##</code> sub, <code>**bold**</code>, <code>[text](url)</code>, <code>- list</code>, <code>&gt; quote</code> ) or raw HTML.</p>
+          <div v-if="articles.length === 0" class="text-center font-serif italic text-ink/50 py-12">No articles yet. Add one to begin.</div>
+          <div v-else class="space-y-3">
+            <div v-for="a in articles" :key="a.slug" class="bg-ivory border border-rule p-4 grid grid-cols-[96px_1fr_auto] gap-4 items-center">
+              <img v-if="a.image_url" :src="a.image_url" :alt="a.title" class="w-24 h-18 object-cover bg-navy">
+              <div v-else class="w-24 h-18 bg-navy flex items-center justify-center text-brass font-serif text-xs">A&amp;C</div>
+              <div>
+                <h3 class="font-serif text-lg text-navy">{{ a.title }}</h3>
+                <p class="text-xs text-ink/60">{{ a.category || 'Article' }} &middot; {{ (a.published_at || '').slice(0, 10) }} &middot; <NuxtLink :to="`/articles/${a.slug}`" target="_blank" class="text-brass-deep">{{ a.slug }}</NuxtLink></p>
+              </div>
+              <div class="flex gap-2">
+                <Button variant="outline" size="sm" @click="openEditArticle(a)">Edit</Button>
+                <Button variant="destructive" size="sm" @click="removeArticle(a)">Delete</Button>
               </div>
             </div>
           </div>
@@ -202,6 +293,66 @@ async function remove(l: Listing) {
         </section>
       </div>
     </main>
+
+    <Dialog v-model:open="articleDialogOpen">
+      <DialogContent class="bg-ivory-soft max-w-[760px] p-0 border-0 max-h-[92vh] overflow-y-auto">
+        <form class="p-6" @submit.prevent="saveArticle">
+          <DialogTitle class="font-serif text-2xl text-navy mb-4">{{ articleForm._original_slug ? 'Edit article' : 'New article' }}</DialogTitle>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
+            <div class="md:col-span-2 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Title</Label>
+              <Input v-model="articleForm.title" required class="bg-white border-[#cdc4ad] text-navy" />
+            </div>
+            <div class="md:col-span-1 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Slug (auto if empty)</Label>
+              <Input v-model="articleForm.slug" :disabled="!!articleForm._original_slug" class="bg-white border-[#cdc4ad] text-navy" />
+            </div>
+            <div class="md:col-span-1 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Category</Label>
+              <Select v-model="articleForm.category">
+                <SelectTrigger class="bg-white border-[#cdc4ad] text-navy"><SelectValue placeholder="Category" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem v-for="c in ['Brokerage','Refit','Charter','Crew','Care','Industry']" :key="c" :value="c">{{ c }}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">SEO title (optional, falls back to Title)</Label>
+              <Input v-model="articleForm.seo_title" maxlength="80" class="bg-white border-[#cdc4ad] text-navy" />
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Meta description</Label>
+              <Textarea v-model="articleForm.description" rows="2" maxlength="200" class="bg-white border-[#cdc4ad] text-navy" />
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Keywords (comma separated)</Label>
+              <Input v-model="articleForm._keywords_text" placeholder="brokerage, refit, charter" class="bg-white border-[#cdc4ad] text-navy" />
+            </div>
+            <div class="md:col-span-1 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Published date (ISO, optional)</Label>
+              <Input v-model="articleForm.published_at" placeholder="2026-05-18T12:00:00.000Z" class="bg-white border-[#cdc4ad] text-navy" />
+            </div>
+            <div class="md:col-span-1 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Hero image URL</Label>
+              <Input v-model="articleForm.image_url" placeholder="/api/images/…" class="bg-white border-[#cdc4ad] text-navy" />
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Hero image upload (optional)</Label>
+              <Input type="file" accept="image/jpeg,image/png,image/webp,image/avif" class="bg-white border-[#cdc4ad]" @change="articleForm._hero_file = ($event.target as HTMLInputElement).files?.[0] || null" />
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-1.5">
+              <Label class="text-xs uppercase tracking-widest text-ink/60">Body (markdown or HTML)</Label>
+              <Textarea v-model="articleForm.content" rows="18" class="bg-white border-[#cdc4ad] text-navy font-mono text-sm" placeholder="# Heading&#10;&#10;Opening paragraph.&#10;&#10;## Subheading&#10;&#10;More text. **Bold**, *italic*, [links](https://example.com).&#10;&#10;- bullet&#10;- bullet&#10;&#10;&gt; A quoted line." />
+            </div>
+          </div>
+          <p v-if="articleNote" class="text-sm text-brass-deep mt-4">{{ articleNote }}</p>
+          <div class="flex justify-end gap-3 mt-6 pt-5 border-t border-rule">
+            <Button type="button" variant="outline" @click="articleDialogOpen = false">Cancel</Button>
+            <Button type="submit" :disabled="articleSubmitting" class="bg-navy text-ivory hover:bg-navy-deep">{{ articleSubmitting ? 'Saving…' : 'Save article' }}</Button>
+          </div>
+        </form>
+      </DialogContent>
+    </Dialog>
 
     <Dialog v-model:open="dialogOpen">
       <DialogContent class="bg-ivory-soft max-w-[760px] p-0 border-0">

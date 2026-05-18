@@ -66,6 +66,16 @@ export async function getArticle(bucket: R2Bucket, slug: string): Promise<Articl
   try { return JSON.parse(await obj.text()) as Article } catch { return null }
 }
 
+export async function writeArticle(bucket: R2Bucket, article: Article): Promise<void> {
+  await bucket.put(`${ARTICLE_PREFIX}${article.slug}.json`, JSON.stringify(article), {
+    httpMetadata: { contentType: 'application/json', cacheControl: 'no-store' },
+  })
+}
+
+export async function deleteArticle(bucket: R2Bucket, slug: string): Promise<void> {
+  await bucket.delete(`${ARTICLE_PREFIX}${slug}.json`)
+}
+
 export function slugify(s: string): string {
   return s.toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '')
