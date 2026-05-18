@@ -56,7 +56,7 @@ useHead({
         <p class="text-base md:text-lg leading-loose text-ink/82 max-w-[62ch]">{{ loc.description }}</p>
         <ul class="grid gap-3 mt-8">
           <li class="creed-item">Standing arrangements with {{ loc.harbours.join(', ') }}.</li>
-          <li class="creed-item">A captain on our team as your direct contact, available by phone or email.</li>
+          <li class="creed-item">Direct communication with the firm, by phone or email.</li>
           <li class="creed-item">The same standard of service across every port we cover.</li>
         </ul>
       </section>

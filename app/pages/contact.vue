@@ -16,7 +16,7 @@ useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/contact' }] })
       <h1 class="font-serif text-navy mt-3 mb-2" style="font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05">Get in touch.</h1>
       <p class="text-xs uppercase tracking-widest text-ink/50 mb-10">We respond personally.</p>
 
-      <p class="text-base md:text-lg leading-relaxed text-ink/84 mb-8">Whether you are considering buying or selling a yacht, looking for ongoing management, or placing crew, send us a short note. As a captain-owned firm, the reply you receive will come from someone who has run yachts themselves.</p>
+      <p class="text-base md:text-lg leading-relaxed text-ink/84 mb-8">Whether you are considering buying or selling a yacht, looking for ongoing management, or placing crew, send us a short note. We are a captain-owned firm based in South Florida, and we reply personally.</p>
 
       <h2 class="font-serif text-navy text-xl md:text-2xl mb-2">Email</h2>
       <p class="text-base md:text-lg leading-relaxed text-ink/84 mb-10"><a href="mailto:office@acmarine.co" class="text-brass-deep underline underline-offset-4">office@acmarine.co</a></p>
