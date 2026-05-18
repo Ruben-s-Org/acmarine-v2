@@ -85,7 +85,7 @@ const services = [
       <div class="section-inner">
         <div class="section-head">
           <p class="eyebrow">Services</p>
-          <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem)">What we do.</h2>
+          <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem)">Our practices.</h2>
           <p class="body-prose" style="margin-top: clamp(1rem, 2.4vw, 1.6rem); max-width: 56ch">
             Every owner who works with us has a single senior contact. We handle the technical, operational, and administrative side of yacht ownership so you can focus on enjoying the water.
           </p>
