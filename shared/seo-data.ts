@@ -28,9 +28,9 @@ export const SERVICES: ServiceDef[] = [
     tagline: 'End-to-end yacht management.',
     intro: 'We handle the operational and administrative side of yacht ownership so you can focus on enjoying the water.',
     description:
-      "Aldridge & Charles Marine serves as your shoreside office. Our team manages the day-to-day operations of your vessel, from accounting and insurance to crew contracts, classification, and regulatory filings. You receive a clear monthly report and weekly briefings from a single senior contact who knows your boat and your priorities.",
+      "Aldridge & Charles Marine serves as your shoreside office. Captain-owned and captain-managed, we run the day-to-day operations of your vessel, from accounting and insurance to crew contracts, classification, and regulatory filings. You receive a clear monthly report and weekly briefings from a captain on our team who knows your boat and your priorities.",
     highlights: [
-      'A single senior contact for every client, available by direct line',
+      'A captain on our team as your direct contact, available by phone',
       'Monthly financial reports with every invoice itemised',
       'Flag and classification advisory across the major registries',
       'Crew payroll and contracts in compliance with MLC 2006',
@@ -48,7 +48,7 @@ export const SERVICES: ServiceDef[] = [
     tagline: 'Yachts for sale across South Florida and the Caribbean.',
     intro: 'We represent buyers and sellers of motor and sailing yachts in the Florida and Caribbean markets.',
     description:
-      'Our brokerage practice handles the acquisition and sale of significant yachts for a small number of clients each year. We carry both publicly listed vessels and a private dossier of yachts available off-market through long-standing client relationships. From the first conversation to closing, you work with the same senior team member.',
+      'Our brokerage practice handles the acquisition and sale of significant yachts for a limited number of clients each year. As a captain-owned firm, our brokers run boats themselves and survey alongside the surveyor, not from the dock. We carry both publicly listed vessels and a private dossier of yachts available off-market through long-standing client relationships, and you work with the same captain-broker from the first conversation to closing.',
     highlights: [
       'Off-market dossier maintained for retained buyers',
       'Straightforward commission structure with no referral fees',
@@ -88,10 +88,10 @@ export const SERVICES: ServiceDef[] = [
     tagline: 'Captains, engineers, and crew for yachts in South Florida.',
     intro: 'We place captains, mates, engineers, chefs, stewards, and deckhands on yachts across South Florida and the Caribbean.',
     description:
-      "Crew placement is run by a senior member of our team who has stood watch and managed crew at sea. Every candidate is interviewed in person, references are read by the placement director, and credentials are verified at source. We focus on long-tenure placements: senior captain matches average just under three years with our clients, against an industry average closer to fourteen months.",
+      "Crew placement is run by working captains, not desk recruiters. As a captain-owned firm we know the South Florida crew network personally: every candidate is interviewed in person, references are read by a captain on our team, and credentials are verified at source. We focus on long-tenure placements: senior captain matches average just under three years with our clients, against an industry average closer to fourteen months.",
     highlights: [
-      'Candidates known to our network, not pulled from a database',
-      'References reviewed personally by a senior team member',
+      'Candidates known to our captains personally, not pulled from a database',
+      'References reviewed by a working captain on our team',
       'STCW, ENG1, and licensing verified at source',
       'Replacement guarantee on senior placements within the first ninety days',
     ],

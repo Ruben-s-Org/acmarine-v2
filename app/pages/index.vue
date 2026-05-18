@@ -3,10 +3,10 @@ import { useInquire } from '~/composables/useInquire'
 const { openDialog } = useInquire()
 
 useSeoMeta({
-  title: 'Aldridge & Charles Marine | Yacht Brokerage, Management, Crew & Charter in South Florida',
-  description: 'Aldridge & Charles Marine is a private yachting firm based in South Florida. We handle yacht brokerage, management, detailing, charter, and crew placement for owners along the Atlantic and across the Caribbean.',
+  title: 'Aldridge & Charles Marine | Captain-Owned Yacht Brokerage, Management & Crew in South Florida',
+  description: 'Aldridge & Charles Marine is a captain-owned and captain-managed yachting firm based in South Florida. Yacht brokerage, management, detailing, charter, and crew placement, run by people who have stood watch themselves.',
   ogTitle: 'Aldridge & Charles Marine',
-  ogDescription: 'A South Florida yachting firm. Brokerage, management, detailing, charter, and crew placement, all handled in-house.',
+  ogDescription: 'A captain-owned and captain-managed yachting firm in South Florida. Brokerage, management, detailing, charter, and crew placement.',
   ogImage: 'https://acmarine.co/og.svg',
   twitterCard: 'summary_large_image',
 })
@@ -22,7 +22,7 @@ useHead({
         name: 'Aldridge & Charles Marine',
         alternateName: 'ACMarine',
         url: 'https://acmarine.co/',
-        description: 'A private yachting firm based in South Florida. Yacht brokerage, management, detailing, charter, and crew placement.',
+        description: 'A captain-owned and captain-managed yachting firm based in South Florida. Yacht brokerage, management, detailing, charter, and crew placement.',
         areaServed: [
           { '@type': 'Place', name: 'South Florida' },
           { '@type': 'Place', name: 'Florida' },
@@ -107,14 +107,14 @@ const services = [
         <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 20ch">Built for owners.</h2>
         <div class="mt-10 space-y-6">
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
-            Aldridge & Charles Marine is a Florida-based firm with a reputable, long-tenured team. We work with a limited number of clients each year, which means every owner we serve receives the attention of a senior team member from the first conversation onward.
+            Aldridge &amp; Charles Marine is a Florida-based firm, captain-owned and captain-managed. We work with a limited number of clients each year, which means every owner we serve speaks with someone who has actually run yachts, hired crew, and stood at the yard.
           </p>
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
             Our pricing is straightforward. Retainers and brokerage commissions are disclosed in writing before any work begins. We do not accept referral fees from yards, marinas, or vendors, which means our recommendations are based on quality and price alone.
           </p>
         </div>
         <ul class="creed-list">
-          <li>A single senior contact for every client, every engagement.</li>
+          <li>A captain on the line for every client, every engagement.</li>
           <li>Transparent pricing, with no third-party referral fees.</li>
           <li>Personal supervision of every survey, sea trial, and yard period.</li>
           <li>Strict confidentiality on every client matter and transaction.</li>
