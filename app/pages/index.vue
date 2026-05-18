@@ -69,7 +69,7 @@ const services = [
           The highest standard for <em>extraordinary</em> vessels.
         </h1>
         <p class="hero-v1-sub">
-          A private yachting firm based in South Florida. We handle yacht brokerage, management and detailing, charter, and crew placement for owners along the Atlantic coast and across the Caribbean.
+          We handle yacht brokerage, management and detailing, refit and engineering, charter, and crew placement for owners along the Atlantic coast and across the Caribbean.
         </p>
         <div class="hero-v1-cta">
           <button type="button" class="btn-v1-primary" @click="openDialog()">Contact our team</button>
