@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  /* Offset for the sticky header so anchored sections aren't hidden under it */
+  section[id], [id] { scroll-margin-top: 72px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
   :root {
     --background: 38 47% 94%;
     --foreground: 217 70% 13%;
