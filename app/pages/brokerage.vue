@@ -10,10 +10,10 @@ import { SlidersHorizontal } from 'lucide-vue-next'
 import type { Listing } from '~~/shared/types'
 
 useSeoMeta({
-  title: 'The Fleet. Yachts currently presented by Aldridge & Charles Marine.',
-  description: 'Yachts currently presented by Aldridge & Charles Marine. A short, considered roster of vessels for sale, charter, and management.',
+  title: 'Yachts for Sale | Aldridge & Charles Marine Brokerage',
+  description: 'Browse motor and sailing yachts for sale by Aldridge & Charles Marine across South Florida and the Caribbean, or contact our team about off-market opportunities.',
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/fleet' }] })
+useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/brokerage' }] })
 
 const { data } = await useFetch<{ listings: Listing[] }>('/api/listings')
 const all = computed(() => data.value?.listings || [])
@@ -124,10 +124,10 @@ const STATUS_LABEL: Record<string, string> = { 'sale-pending': 'Sale Pending', s
       <div class="container mx-auto max-w-[880px]">
         <p class="eyebrow text-brass-deep">Brokerage</p>
         <h1 class="font-serif text-navy mt-4 mb-3" style="font-size: clamp(2.2rem, 7vw, 4rem); line-height: 1.05">
-          Extraordinary vessels.
+          Yachts for sale.
         </h1>
         <p class="text-base md:text-lg text-ink/74 leading-relaxed max-w-[60ch] mx-auto">
-          Search the dossier, then write to view, to receive the full briefing, or to be introduced to her captain.
+          Browse our current listings below. Many of the vessels we represent are not shown publicly. Contact our team to schedule a viewing, request a full briefing, or discuss an off-market search.
         </p>
       </div>
     </section>
@@ -219,7 +219,7 @@ const STATUS_LABEL: Record<string, string> = { 'sale-pending': 'Sale Pending', s
               </div>
             </NuxtLink>
           </div>
-          <p v-else class="text-center font-serif italic text-ink/60 py-16">No vessels currently match. Please write to the office for matters not yet presented publicly.</p>
+          <p v-else class="text-center font-serif italic text-ink/60 py-16">No vessels match your filters. Many of our listings are not shown publicly. Contact our team to discuss your search.</p>
         </div>
 
       </div>

@@ -3,10 +3,10 @@ import { useInquire } from '~/composables/useInquire'
 const { openDialog } = useInquire()
 
 useSeoMeta({
-  title: 'Aldridge & Charles Marine. Yacht Management, Brokerage, Refit, Charter, Crew & Detailing.',
-  description: 'Aldridge & Charles Marine: a private office handling yacht management, brokerage, refit, charter, crew, detailing, and every other service a great yacht requires.',
+  title: 'Aldridge & Charles Marine | Yacht Brokerage, Management, Crew & Charter in South Florida',
+  description: 'Aldridge & Charles Marine is a private yachting firm based in South Florida. We handle yacht brokerage, management, detailing, charter, and crew placement for owners along the Atlantic and across the Caribbean.',
   ogTitle: 'Aldridge & Charles Marine',
-  ogDescription: 'A private office handling every service a great yacht requires.',
+  ogDescription: 'A South Florida yachting firm. Brokerage, management, detailing, charter, and crew placement, all handled in-house.',
   ogImage: 'https://acmarine.co/og.svg',
   twitterCard: 'summary_large_image',
 })
@@ -22,24 +22,40 @@ useHead({
         name: 'Aldridge & Charles Marine',
         alternateName: 'ACMarine',
         url: 'https://acmarine.co/',
-        description: 'A private marine office. Yacht management, brokerage, refit, charter, detailing, crew placement, engineering counsel, and concierge.',
+        description: 'A private yachting firm based in South Florida. Yacht brokerage, management, detailing, charter, and crew placement.',
         areaServed: [
-          { '@type': 'Place', name: 'Mediterranean' },
+          { '@type': 'Place', name: 'South Florida' },
+          { '@type': 'Place', name: 'Florida' },
+          { '@type': 'Place', name: 'The Bahamas' },
           { '@type': 'Place', name: 'Caribbean' },
-          { '@type': 'Place', name: 'Atlantic' },
-          { '@type': 'Place', name: 'Pacific' },
         ],
-        contactPoint: { '@type': 'ContactPoint', email: 'office@acmarine.co', contactType: 'office' },
+        contactPoint: { '@type': 'ContactPoint', email: 'office@acmarine.co', contactType: 'customer service' },
       }),
     },
   ],
 })
 
 const services = [
-  { name: 'Brokerage & Acquisition', short: 'Brokerage', body: 'Off-market vessels, selectively presented. Sea trials in our own time. Surveys we trust. A purchase process measured in months, not weeks.' },
-  { name: 'Detailing & Daily Stewardship', short: 'Detailing', body: 'Varnish, paint, leather, teak, polish, deep wash and rinse. The hand work that decides whether a vessel ages with grace or with age.' },
-  { name: 'Charter Programmes', short: 'Charter', body: 'Itineraries shaped to the principal, hospitality directed by people who have set the table themselves. Guests welcomed by name, never by spreadsheet.' },
-  { name: 'Crew Placement', short: 'Crew', body: 'Captains, engineers, chefs, stewards, deckhands. People we have known for two decades or vetted before we put them forward.' },
+  {
+    name: 'Brokerage & Acquisition',
+    short: 'Brokerage',
+    body: 'Buying or selling a yacht is one of the most significant decisions an owner makes. We represent buyers and sellers across South Florida, with deep relationships in the Florida, Bahamas, and Caribbean markets, and a clear, transparent process from first offer to closing.',
+  },
+  {
+    name: 'Detailing & Yacht Management',
+    short: 'Detailing',
+    body: 'Salt air and Florida sun are unforgiving on a yacht. Our detailing and management programs cover everything from weekly washes to annual haul-outs, with the same crew supervising your vessel month after month and a single point of contact handling every vendor.',
+  },
+  {
+    name: 'Charter Programmes',
+    short: 'Charter',
+    body: 'Whether you are chartering your own yacht or arranging a private charter for friends and family, we plan the itinerary, brief the crew, and coordinate every aspect of the experience.',
+  },
+  {
+    name: 'Crew Placement',
+    short: 'Crew',
+    body: 'We place captains, mates, engineers, chefs, and stewards on yachts throughout South Florida. Every candidate is licensed, references-checked, and met in person before we make an introduction.',
+  },
 ]
 </script>
 
@@ -53,10 +69,10 @@ const services = [
           The highest standard for <em>extraordinary</em> vessels.
         </h1>
         <p class="hero-v1-sub">
-          A private marine office for the owners of significant vessels. Brokerage, charter, crew, and the daily stewardship that keeps a great yacht in the state she deserves. We grow by introduction and by reputation.
+          A private yachting firm based in South Florida. We handle yacht brokerage, management and detailing, charter, and crew placement for owners along the Atlantic coast and across the Caribbean.
         </p>
         <div class="hero-v1-cta">
-          <button type="button" class="btn-v1-primary" @click="openDialog()">Request an Introduction</button>
+          <button type="button" class="btn-v1-primary" @click="openDialog()">Contact our team</button>
           <a href="#services" class="btn-v1-ghost">View Services</a>
         </div>
       </div>
@@ -69,9 +85,9 @@ const services = [
       <div class="section-inner">
         <div class="section-head">
           <p class="eyebrow">Services</p>
-          <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem)">Four practices.</h2>
+          <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem)">What we do.</h2>
           <p class="body-prose" style="margin-top: clamp(1rem, 2.4vw, 1.6rem); max-width: 56ch">
-            Trust earned by repetition. Reliability proved by record. The four services a great yacht requires most, delivered by the same office, on the same telephone, in every time zone she sails.
+            Every owner who works with us has a single senior contact. We handle the technical, operational, and administrative side of yacht ownership so you can focus on enjoying the water.
           </p>
         </div>
         <div class="svc-grid">
@@ -88,20 +104,20 @@ const services = [
     <section id="approach" class="section-pad">
       <div class="section-narrow">
         <p class="eyebrow">Approach</p>
-        <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 20ch">Built for owners, not transactions.</h2>
+        <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 20ch">Built for owners.</h2>
         <div class="mt-10 space-y-6">
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
-            We work for a closed roster of principals. The office takes engagements it can answer with care and declines those it cannot. The aim is to keep your vessel ready for guests, not ready for inspection.
+            Aldridge & Charles Marine is a Florida-based firm with a small, long-tenured team. We work with a limited number of clients each year, which means every owner we serve receives the attention of a senior team member from the first conversation onward.
           </p>
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
-            We are paid by retainer and by clean commissions on the work we openly do. We take no kickbacks from yards, marinas, or vendors. Every recommendation we make stands on merit; every invoice we send is one we are prepared to defend in writing.
+            Our pricing is straightforward. Retainers and brokerage commissions are disclosed in writing before any work begins. We do not accept referral fees from yards, marinas, or vendors, which means our recommendations are based on quality and price alone.
           </p>
         </div>
         <ul class="creed-list">
-          <li>One principal, one director, one number that does not change.</li>
-          <li>Retainers and clean commissions. No referral fees, no vendor kickbacks.</li>
-          <li>Surveys, sea trials and yard work overseen by the office in person.</li>
-          <li>Conversations, records and identities held in standing confidence.</li>
+          <li>A single senior contact for every client, every engagement.</li>
+          <li>Transparent pricing, with no third-party referral fees.</li>
+          <li>Personal supervision of every survey, sea trial, and yard period.</li>
+          <li>Strict confidentiality on every client matter and transaction.</li>
         </ul>
       </div>
     </section>
@@ -109,14 +125,14 @@ const services = [
     <!-- CONTACT -->
     <section id="contact" class="contact-strip section-pad">
       <div class="section-narrow" style="max-width: 720px">
-        <p class="eyebrow">Inquire</p>
-        <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 18ch">Write to the office.</h2>
+        <p class="eyebrow">Contact</p>
+        <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 22ch">Get in touch.</h2>
         <p class="body-prose" style="margin-top: clamp(1rem, 2.4vw, 1.6rem); margin-bottom: clamp(1.5rem, 3vw, 2.5rem)">
-          Briefly tell us about your vessel or what you are looking for. The director on duty will respond promptly.
+          Send us a short note about your vessel or what you are looking for. A member of our team will respond personally, usually within a few business hours.
         </p>
-        <button type="button" class="btn-contact" @click="openDialog()">Open the inquiry form</button>
+        <button type="button" class="btn-contact" @click="openDialog()">Send a message</button>
         <p class="direct">
-          Or write directly:
+          Or reach us directly at
           <a href="mailto:office@acmarine.co">office@acmarine.co</a>
         </p>
       </div>

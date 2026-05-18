@@ -10,8 +10,8 @@ const { openDialog } = useInquire()
 
 const canonical = `https://acmarine.co/services/${svc.slug}`
 useSeoMeta({
-  title: `${svc.name}. Aldridge & Charles Marine.`,
-  description: `${svc.intro}`,
+  title: `${svc.name} | Aldridge & Charles Marine`,
+  description: `${svc.intro}`.slice(0, 158),
 })
 useHead({
   link: [{ rel: 'canonical', href: canonical }],
@@ -54,7 +54,7 @@ const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 4)
         <p class="eyebrow">Service</p>
         <h1 class="font-serif text-navy mt-4 mb-4" style="font-size: clamp(2.6rem, 7vw, 4.5rem); line-height: 1.05; letter-spacing: -0.01em">{{ svc.name }}.</h1>
         <p class="text-base md:text-xl leading-relaxed text-ink/78 max-w-[60ch] mb-8">{{ svc.tagline }}</p>
-        <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-7 py-4 text-sm tracking-wider" @click="openDialog({ service: svc.name })">Inquire about {{ svc.shortName }}</button>
+        <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-7 py-4 text-sm tracking-wider" @click="openDialog({ service: svc.name })">Contact us about {{ svc.shortName.toLowerCase() }}</button>
       </section>
 
       <section class="max-w-[880px] py-10 md:py-14 border-t border-rule">
@@ -67,8 +67,8 @@ const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 4)
       </section>
 
       <section class="py-10 md:py-14 border-t border-rule">
-        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-3" style="line-height:1.1">Where we hold {{ svc.shortName.toLowerCase() }} retainers.</h2>
-        <p class="text-base md:text-lg text-ink/70 mb-8 max-w-[56ch]">The office answers from four addresses. Each holds standing arrangements with the priority marinas, surveyors, yards, and counsel in its region.</p>
+        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-3" style="line-height:1.1">Where we offer {{ svc.shortName.toLowerCase() }}.</h2>
+        <p class="text-base md:text-lg text-ink/70 mb-8 max-w-[56ch]">We work across South Florida and the Gulf Coast, with standing relationships at the priority marinas, yards, surveyors, and counsel in each region.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <NuxtLink v-for="l in LOCATIONS" :key="l.slug" :to="`/services/${svc.slug}/${l.slug}`" class="block p-6 bg-white border border-rule hover:border-brass hover:-translate-y-0.5 transition-all">
             <p class="text-[0.7rem] uppercase tracking-widest text-brass-deep mb-2">{{ l.region }}</p>
@@ -89,7 +89,7 @@ const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 4)
       </section>
 
       <section class="py-10 md:py-14 border-t border-rule">
-        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-6" style="line-height:1.1">Other practices.</h2>
+        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-6" style="line-height:1.1">Other services.</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <NuxtLink v-for="s in otherServices" :key="s.slug" :to="`/services/${s.slug}`" class="block p-6 bg-white border border-rule hover:border-brass hover:-translate-y-0.5 transition-all">
             <h3 class="font-serif text-xl text-navy mb-2">{{ s.name }}.</h3>

@@ -9,8 +9,8 @@ const { openDialog } = useInquire()
 
 const canonical = `https://acmarine.co/locations/${loc.slug}`
 useSeoMeta({
-  title: `${loc.name}. Aldridge & Charles Marine.`,
-  description: `Aldridge & Charles Marine in ${loc.name}, ${loc.region}: yacht management, brokerage, refit, charter, crew, detailing, engineering counsel, and concierge.`.slice(0, 158),
+  title: `Yacht Services in ${loc.name} | Aldridge & Charles Marine`,
+  description: `Aldridge & Charles Marine in ${loc.name}, ${loc.region}. Yacht management, brokerage, refit, charter, crew placement, detailing, and concierge.`.slice(0, 158),
 })
 useHead({
   link: [{ rel: 'canonical', href: canonical }],
@@ -48,22 +48,22 @@ useHead({
         <p class="eyebrow">{{ loc.region }}</p>
         <h1 class="font-serif text-navy mt-4 mb-4" style="font-size: clamp(2.6rem, 7vw, 4.5rem); line-height: 1.05; letter-spacing: -0.01em">{{ loc.name }}.</h1>
         <p class="text-base md:text-xl leading-relaxed text-ink/78 max-w-[60ch] mb-8">{{ loc.name }} is {{ loc.flavor }}.</p>
-        <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-7 py-4 text-sm tracking-wider" @click="openDialog({ service: `the ${loc.name} office` })">Inquire in {{ loc.name }}</button>
+        <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-7 py-4 text-sm tracking-wider" @click="openDialog({ service: `Services in ${loc.name}` })">Contact us in {{ loc.name }}</button>
       </section>
 
       <section class="max-w-[880px] py-10 md:py-14 border-t border-rule">
-        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-5" style="line-height:1.1">The office in {{ loc.name }}.</h2>
+        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-5" style="line-height:1.1">Our work in {{ loc.name }}.</h2>
         <p class="text-base md:text-lg leading-loose text-ink/82 max-w-[62ch]">{{ loc.description }}</p>
         <ul class="grid gap-3 mt-8">
           <li class="creed-item">Standing arrangements with {{ loc.harbours.join(', ') }}.</li>
-          <li class="creed-item">One director on duty, on a direct line, in your time zone when the principal is aboard.</li>
-          <li class="creed-item">The same standard as our other addresses, the same telephone number that does not change.</li>
+          <li class="creed-item">A senior team member as your direct contact, available by phone or email.</li>
+          <li class="creed-item">The same standard of service across every port we cover.</li>
         </ul>
       </section>
 
       <section class="py-10 md:py-14 border-t border-rule">
-        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-3" style="line-height:1.1">Practices we run in {{ loc.name }}.</h2>
-        <p class="text-base md:text-lg text-ink/70 mb-8 max-w-[56ch]">Every service the office offers, delivered from {{ loc.name }}.</p>
+        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-3" style="line-height:1.1">Services we offer in {{ loc.name }}.</h2>
+        <p class="text-base md:text-lg text-ink/70 mb-8 max-w-[56ch]">Every service we offer, available in {{ loc.name }}.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <NuxtLink v-for="s in SERVICES" :key="s.slug" :to="`/services/${s.slug}/${loc.slug}`" class="block p-6 bg-white border border-rule hover:border-brass hover:-translate-y-0.5 transition-all">
             <p class="text-[0.7rem] uppercase tracking-widest text-brass-deep mb-2">{{ s.shortName }}</p>

@@ -51,10 +51,10 @@ const chips = [
 ].filter(Boolean) as { label: string; value: string }[]
 
 useSeoMeta({
-  title: `${l.name}. Aldridge & Charles Marine.`,
-  description: l.short || (l.description ? l.description.slice(0, 160) : `${l.name}, presented by Aldridge & Charles Marine.`),
-  ogTitle: `${l.name}. Aldridge & Charles Marine.`,
-  ogDescription: l.short || `${l.name}, presented by Aldridge & Charles Marine.`,
+  title: `${l.name} | Aldridge & Charles Marine`,
+  description: l.short || (l.description ? l.description.slice(0, 160) : `${l.name}, listed for sale with Aldridge & Charles Marine.`),
+  ogTitle: `${l.name} | Aldridge & Charles Marine`,
+  ogDescription: l.short || `${l.name}, listed for sale with Aldridge & Charles Marine.`,
   ogImage: l.hero_image,
   twitterCard: 'summary_large_image',
 })
@@ -79,7 +79,7 @@ useHead({
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.co' },
-          { '@type': 'ListItem', position: 2, name: 'Fleet', item: 'https://acmarine.co/fleet' },
+          { '@type': 'ListItem', position: 2, name: 'Brokerage', item: 'https://acmarine.co/brokerage' },
           { '@type': 'ListItem', position: 3, name: l.name },
         ],
       }),
@@ -92,7 +92,7 @@ useHead({
   <div class="px-4 md:px-6 pt-6 md:pt-8 pb-12">
     <div class="container mx-auto max-w-[1180px]">
       <nav class="text-xs uppercase tracking-wider text-ink/55 mb-5" aria-label="Breadcrumb">
-        <NuxtLink to="/fleet" class="text-navy hover:text-brass-deep mr-2">Fleet</NuxtLink>
+        <NuxtLink to="/brokerage" class="text-navy hover:text-brass-deep mr-2">Brokerage</NuxtLink>
         <span class="text-brass mr-2">›</span>
         <span>{{ l.name }}</span>
       </nav>
@@ -123,14 +123,14 @@ useHead({
 
           <div class="flex gap-3 flex-wrap mt-2">
             <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-5 py-3 text-sm tracking-wider" @click="openDialog({ listingSlug: l.slug, listingName: l.name })">Request a Viewing</button>
-            <a :href="`mailto:office@acmarine.co?subject=${encodeURIComponent(l.name)}`" class="text-navy border border-rule hover:border-navy px-5 py-3 text-sm tracking-wider">Email the office</a>
+            <a :href="`mailto:office@acmarine.co?subject=${encodeURIComponent(l.name)}`" class="text-navy border border-rule hover:border-navy px-5 py-3 text-sm tracking-wider">Email us</a>
           </div>
         </div>
       </section>
 
       <section class="grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-8 md:gap-12 mb-12">
         <div v-if="l.description">
-          <h2 class="font-serif text-navy text-2xl md:text-3xl mb-4">Notes from the office</h2>
+          <h2 class="font-serif text-navy text-2xl md:text-3xl mb-4">About this vessel</h2>
           <p v-for="(p, i) in l.description.split(/\n\n+/)" :key="i" class="text-base leading-loose text-ink/82 mb-4 max-w-[62ch]">{{ p }}</p>
         </div>
         <aside v-if="specRows.length">

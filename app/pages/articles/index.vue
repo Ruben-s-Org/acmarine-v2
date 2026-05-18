@@ -4,8 +4,8 @@ import type { Article } from '~~/shared/types'
 import { pickYachtPhoto } from '~~/shared/yacht-photos'
 
 useSeoMeta({
-  title: 'Articles. Aldridge & Charles Marine.',
-  description: 'Notes from the office on yacht industry analysis, refit, brokerage, crew, and charter.',
+  title: 'Articles & Guides | Aldridge & Charles Marine',
+  description: 'Practical articles on buying and selling yachts, ongoing management, detailing, and crew placement in South Florida and the Caribbean.',
 })
 useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/articles' }] })
 
@@ -19,8 +19,8 @@ function imageFor(a: Article) { return a.image_url || pickYachtPhoto(a.slug) }
     <section class="text-center bg-gradient-to-b from-ivory to-ivory-soft pt-16 md:pt-24 pb-10 px-4">
       <div class="container mx-auto max-w-[880px]">
         <p class="eyebrow">Articles</p>
-        <h1 class="font-serif text-navy mt-5 mb-4" style="font-size: clamp(2.2rem, 7vw, 4rem); line-height: 1.05">Notes from the office.</h1>
-        <p class="text-base md:text-lg text-ink/74 max-w-[60ch] mx-auto leading-relaxed">Yacht industry analysis, refit notes, brokerage context, crew and charter insight. Published when there is something worth saying.</p>
+        <h1 class="font-serif text-navy mt-5 mb-4" style="font-size: clamp(2.2rem, 7vw, 4rem); line-height: 1.05">Articles &amp; guides.</h1>
+        <p class="text-base md:text-lg text-ink/74 max-w-[60ch] mx-auto leading-relaxed">Practical writing on buying and selling yachts, ongoing management, detailing, and crew placement across South Florida and the Caribbean. Updated when we have something useful to share.</p>
       </div>
     </section>
 
@@ -37,7 +37,7 @@ function imageFor(a: Article) { return a.image_url || pickYachtPhoto(a.slug) }
           </div>
         </NuxtLink>
       </div>
-      <p v-else class="text-center font-serif italic text-ink/60 py-12">The office publishes when there is something worth saying. The first articles appear shortly.</p>
+      <p v-else class="text-center font-serif italic text-ink/60 py-12">We publish when we have something useful to share. The first articles will appear shortly.</p>
     </section>
   </div>
 </template>

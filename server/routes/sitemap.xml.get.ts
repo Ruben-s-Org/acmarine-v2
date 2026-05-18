@@ -3,7 +3,7 @@ import { SERVICES, LOCATIONS } from '../../shared/seo-data'
 export default defineEventHandler(async (event) => {
   const urls: { loc: string; lastmod?: string; priority?: string }[] = [
     { loc: 'https://acmarine.co/', priority: '1.0' },
-    { loc: 'https://acmarine.co/fleet', priority: '0.9' },
+    { loc: 'https://acmarine.co/brokerage', priority: '0.9' },
     { loc: 'https://acmarine.co/articles', priority: '0.85' },
     { loc: 'https://acmarine.co/contact', priority: '0.7' },
     { loc: 'https://acmarine.co/privacy', priority: '0.4' },

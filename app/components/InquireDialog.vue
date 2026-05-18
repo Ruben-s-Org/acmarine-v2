@@ -19,7 +19,7 @@ const submitted = ref(false)
 const title = computed(() => {
   if (service.value) return `${service.value}.`
   if (listingName.value || listingSlug.value) return 'Request a viewing.'
-  return 'Write to the office.'
+  return 'Get in touch.'
 })
 
 watch(open, (v) => {
@@ -30,11 +30,11 @@ watch(open, (v) => {
   note.value = ''
   submitted.value = false
   if (service.value && !message.value.trim()) {
-    message.value = `I would like to inquire about your ${service.value} service.`
+    message.value = `I'd like to learn more about your ${service.value} service.`
   } else if (listingName.value && !message.value.trim()) {
-    message.value = `Regarding ${listingName.value}.`
+    message.value = `Interested in ${listingName.value}.`
   } else if (listingSlug.value && !message.value.trim()) {
-    message.value = `Regarding ${listingSlug.value.replace(/-/g, ' ')}.`
+    message.value = `Interested in ${listingSlug.value.replace(/-/g, ' ')}.`
   }
 })
 
@@ -45,7 +45,7 @@ async function submit(e: Event) {
   const p1 = phone.value.trim()
   const m = message.value.trim()
   if (!n || !m || (!e1 && !p1)) {
-    note.value = 'Please leave your name, a way for us to reach you, and a brief note.'
+    note.value = 'Please share your name, a way for us to reach you, and a brief note.'
     return
   }
   submitting.value = true
@@ -63,7 +63,7 @@ async function submit(e: Event) {
     name.value = ''; email.value = ''; phone.value = ''; message.value = ''
     setTimeout(() => closeDialog(), 4500)
   } catch (err) {
-    note.value = 'Something went wrong. Please write to office@acmarine.co directly.'
+    note.value = 'Something went wrong. Please email office@acmarine.co directly.'
   } finally {
     submitting.value = false
   }
@@ -80,7 +80,7 @@ async function submit(e: Event) {
         </div>
         <DialogTitle class="font-serif text-3xl md:text-4xl text-navy mb-3" style="line-height: 1.1">Thank you.</DialogTitle>
         <DialogDescription class="font-serif italic text-lg text-ink/75 max-w-[34ch] leading-snug">
-          The office has your note. We will write to you promptly.
+          We've received your message. A member of our team will be in touch shortly.
         </DialogDescription>
         <button type="button" class="mt-8 text-xs uppercase tracking-widest text-brass-deep hover:text-navy underline underline-offset-4 decoration-brass/40" @click="closeDialog">Close</button>
       </div>
@@ -90,7 +90,7 @@ async function submit(e: Event) {
         <p class="eyebrow mb-3">Inquire</p>
         <DialogTitle class="font-serif text-3xl text-navy mb-2">{{ title }}</DialogTitle>
         <DialogDescription class="text-sm text-ink/70 mb-6 leading-relaxed">
-          Tell us, briefly. The director on duty replies promptly.
+          Send us a short note. A member of our team will respond personally, usually within a few business hours.
         </DialogDescription>
 
         <form class="grid grid-cols-1 sm:grid-cols-2 gap-4" @submit="submit" novalidate>
@@ -117,7 +117,7 @@ async function submit(e: Event) {
         </form>
 
         <p class="mt-6 font-serif text-base text-ink/70">
-          Or write directly:
+          Or reach us directly at
           <a href="mailto:office@acmarine.co" class="underline underline-offset-4 decoration-brass text-navy">office@acmarine.co</a>
         </p>
       </div>

@@ -70,10 +70,10 @@ useHead({
       <div class="article-body text-base md:text-lg leading-loose text-ink/86" v-html="a.content" @click="handleArticleClick" />
 
       <section class="mt-16 bg-navy text-ivory px-6 md:px-10 py-12 -mx-4 md:mx-0">
-        <p class="text-[0.7rem] uppercase tracking-widest text-brass mb-3">Inquire</p>
-        <h2 class="font-serif text-ivory text-3xl md:text-4xl mb-4">Write to the office.</h2>
-        <p class="text-ivory/78 max-w-[56ch] mb-6 leading-relaxed">If this article raised a question worth answering, write. The director on duty replies promptly.</p>
-        <button type="button" class="bg-white text-navy hover:bg-ivory-soft px-7 py-4 text-sm tracking-wider" @click="openDialog()">Open the inquiry form</button>
+        <p class="text-[0.7rem] uppercase tracking-widest text-brass mb-3">Contact</p>
+        <h2 class="font-serif text-ivory text-3xl md:text-4xl mb-4">Get in touch.</h2>
+        <p class="text-ivory/78 max-w-[56ch] mb-6 leading-relaxed">If this article raised a question, send us a short note. A member of our team will respond personally, usually within a few business hours.</p>
+        <button type="button" class="bg-white text-navy hover:bg-ivory-soft px-7 py-4 text-sm tracking-wider" @click="openDialog()">Send a message</button>
       </section>
     </article>
   </div>

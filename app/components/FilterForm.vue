@@ -52,11 +52,11 @@ const labelCls = 'text-[0.68rem] uppercase tracking-widest text-ink/60'
   <div class="space-y-5">
     <div>
       <p class="font-serif text-navy text-xl mb-1">Filter</p>
-      <p class="text-xs text-ink/55">The current fleet, refined.</p>
+      <p class="text-xs text-ink/55">Narrow your search.</p>
     </div>
 
     <div class="flex flex-wrap gap-1.5">
-      <button v-for="s in ['all','available','sale-pending','sold']" :key="s" type="button"
+      <button v-for="s in ['all','available','sale-pending']" :key="s" type="button"
         :class="['border px-2.5 py-1.5 text-[0.66rem] uppercase tracking-widest transition-colors', activeStatus === s ? 'bg-navy text-ivory border-navy' : 'border-rule text-navy hover:border-navy']"
         @click="emit('update:activeStatus', s)">{{ s === 'all' ? 'All' : s === 'sale-pending' ? 'Sale Pending' : s.charAt(0).toUpperCase() + s.slice(1) }}</button>
     </div>

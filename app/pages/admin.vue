@@ -208,7 +208,7 @@ async function removeArticle(a: Article) {
       <Card v-if="!authed" class="max-w-[440px] mx-auto mt-8 bg-ivory border-rule">
         <CardContent class="p-8">
           <h1 class="font-serif text-2xl text-navy mb-2">Office access</h1>
-          <p class="text-sm text-ink/60 mb-6">Enter the office key to manage the fleet.</p>
+          <p class="text-sm text-ink/60 mb-6">Enter the admin key to manage listings, articles, and inquiries.</p>
           <form class="flex flex-col gap-4" @submit.prevent="login">
             <div>
               <Label class="text-xs uppercase tracking-widest text-ink/60 mb-2 block">Office key</Label>

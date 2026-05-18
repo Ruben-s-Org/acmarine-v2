@@ -11,8 +11,8 @@ const { openDialog } = useInquire()
 
 const canonical = `https://acmarine.co/services/${svc.slug}/${loc.slug}`
 useSeoMeta({
-  title: `${svc.name} in ${loc.name}. Aldridge & Charles Marine.`,
-  description: `${svc.name} in ${loc.name}: ${svc.tagline} A private marine office answering on the same telephone wherever in the world she lies.`.slice(0, 158),
+  title: `${svc.name} in ${loc.name} | Aldridge & Charles Marine`,
+  description: `${svc.name} in ${loc.name}, ${loc.region}. ${svc.intro}`.slice(0, 158),
 })
 useHead({
   link: [{ rel: 'canonical', href: canonical }],
@@ -64,8 +64,8 @@ const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 4)
       <section class="max-w-[800px] py-10 md:py-16">
         <p class="eyebrow">{{ svc.name }} · {{ loc.name }}</p>
         <h1 class="font-serif text-navy mt-4 mb-4" style="font-size: clamp(2.4rem, 6.4vw, 4.2rem); line-height: 1.05; letter-spacing: -0.01em">{{ svc.name }} in {{ loc.name }}.</h1>
-        <p class="text-base md:text-xl leading-relaxed text-ink/78 max-w-[60ch] mb-8">{{ svc.tagline }} Delivered from {{ loc.name }}, {{ loc.region }}, by the same office that holds the brief everywhere else she sails.</p>
-        <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-7 py-4 text-sm tracking-wider" @click="openDialog({ service: `${svc.name} in ${loc.name}` })">Inquire about {{ svc.shortName }} in {{ loc.name }}</button>
+        <p class="text-base md:text-xl leading-relaxed text-ink/78 max-w-[60ch] mb-8">{{ svc.tagline }} Available in {{ loc.name }}, {{ loc.region }}, with the same team and standard we offer across every port we cover.</p>
+        <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-7 py-4 text-sm tracking-wider" @click="openDialog({ service: `${svc.name} in ${loc.name}` })">Contact us about {{ svc.shortName.toLowerCase() }} in {{ loc.name }}</button>
       </section>
 
       <section class="max-w-[880px] py-10 md:py-14 border-t border-rule">
@@ -81,8 +81,8 @@ const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 4)
       </section>
 
       <section class="py-10 md:py-14 border-t border-rule">
-        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-3" style="line-height:1.1">{{ svc.shortName }} in other harbours.</h2>
-        <p class="text-base md:text-lg text-ink/70 mb-8 max-w-[56ch]">The same office, the same standard, at every other address.</p>
+        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-3" style="line-height:1.1">{{ svc.shortName }} in other ports.</h2>
+        <p class="text-base md:text-lg text-ink/70 mb-8 max-w-[56ch]">The same team and the same standard, in every port we cover.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <NuxtLink v-for="l in otherLocations" :key="l.slug" :to="`/services/${svc.slug}/${l.slug}`" class="block p-6 bg-white border border-rule hover:border-brass hover:-translate-y-0.5 transition-all">
             <p class="text-[0.7rem] uppercase tracking-widest text-brass-deep mb-2">{{ l.region }}</p>
@@ -93,7 +93,7 @@ const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 4)
       </section>
 
       <section class="py-10 md:py-14 border-t border-rule">
-        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-6" style="line-height:1.1">Other practices in {{ loc.name }}.</h2>
+        <h2 class="font-serif text-navy text-3xl md:text-5xl mb-6" style="line-height:1.1">Other services in {{ loc.name }}.</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <NuxtLink v-for="s in otherServices" :key="s.slug" :to="`/services/${s.slug}/${loc.slug}`" class="block p-6 bg-white border border-rule hover:border-brass hover:-translate-y-0.5 transition-all">
             <h3 class="font-serif text-xl text-navy mb-2">{{ s.name }} in {{ loc.name }}.</h3>
