@@ -10,6 +10,14 @@ if (!a.value) throw createError({ statusCode: 404, statusMessage: 'Not found', f
 
 const heroImg = computed(() => a.value.image_url || pickYachtPhoto(a.value.slug))
 const { openDialog } = useInquire()
+
+function handleArticleClick(e: MouseEvent) {
+  const target = (e.target as HTMLElement)?.closest('[data-acm-inquire]')
+  if (target) {
+    e.preventDefault()
+    openDialog()
+  }
+}
 const canonical = `https://acmarine.co/articles/${a.value.slug}`
 
 useSeoMeta({
@@ -59,7 +67,7 @@ useHead({
         <img :src="heroImg" :alt="a.title" width="1200" height="800" class="w-full aspect-[3/2] object-cover" @error="(($event.target as HTMLImageElement).src = '/api/images/_meta/stock/stock-01.jpg')">
       </figure>
 
-      <div class="article-body text-base md:text-lg leading-loose text-ink/86" v-html="a.content" />
+      <div class="article-body text-base md:text-lg leading-loose text-ink/86" v-html="a.content" @click="handleArticleClick" />
 
       <section class="mt-16 bg-navy text-ivory px-6 md:px-10 py-12 -mx-4 md:mx-0">
         <p class="text-[0.7rem] uppercase tracking-widest text-brass mb-3">Inquire</p>
@@ -79,4 +87,51 @@ useHead({
 .article-body blockquote { border-left: 2px solid #b08d57; padding: 0.4rem 0 0.4rem 1.4rem; margin: 1.6rem 0; font-family: 'Cormorant Garamond', serif; font-style: italic; color: #0a1e3a; }
 .article-body ul, .article-body ol { margin: 1rem 0 1.4rem 1.4rem; padding: 0; }
 .article-body li { margin-bottom: 0.5rem; }
+
+.article-body .cta-card {
+  background: #0a1e3a;
+  color: #f4ede0;
+  padding: 1.8rem 1.6rem;
+  margin: 2.6rem -1rem;
+  border-left: 3px solid #b08d57;
+}
+.article-body .cta-card .cta-eyebrow {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  color: #b08d57;
+  font-weight: 500;
+  margin-bottom: 0.55rem;
+}
+.article-body .cta-card .cta-headline {
+  font-family: 'Cormorant Garamond', serif;
+  color: #f4ede0;
+  font-size: clamp(1.35rem, 2.8vw, 1.7rem);
+  line-height: 1.22;
+  margin: 0 0 0.7rem;
+}
+.article-body .cta-card p {
+  color: rgba(244, 237, 224, 0.84);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.article-body .cta-card .cta-button {
+  background: #f4ede0;
+  color: #0a1e3a;
+  padding: 0.85rem 1.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  border: 0;
+  display: inline-block;
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+.article-body .cta-card .cta-button:hover { background: #fff; }
+@media (min-width: 768px) {
+  .article-body .cta-card { margin: 2.8rem 0; padding: 2.2rem 2.4rem; }
+}
 </style>
