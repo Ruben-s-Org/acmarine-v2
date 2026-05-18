@@ -14,5 +14,5 @@ export default defineEventHandler(async (event) => {
   await appendInquiry(bucket, record)
   // Fire-and-don't-fail email notify
   const result = await sendInquiryEmail(event, record).catch(e => ({ ok: false, error: String(e) }))
-  return { ok: true, emailed: result.ok }
+  return { ok: true, emailed: result.ok, mailError: result.ok ? undefined : (result as any).error?.slice?.(0, 200) || (result as any).error }
 })
