@@ -1,0 +1,83 @@
+# Aldridge & Charles Marine
+
+> A captain-owned yachting firm based in South Florida. We handle yacht brokerage, management and detailing, refit and engineering, charter, and crew placement for owners along the Atlantic coast and across the Caribbean.
+
+## About
+
+Aldridge & Charles Marine is a Florida-based firm, captain-owned and led. We work with a limited number of clients each year, with the perspective of an operator rather than a desk. Our home port is Miami, and we work across South Florida, the Bahamas, and the Caribbean.
+
+Founded by a working captain, the firm is built around the practical knowledge of running yachts in the real world: what breaks, what costs, what to look for at survey, what crew to trust, what yard to use, and when to walk away from a deal.
+
+## Services
+
+### Brokerage & Acquisition
+We represent buyers and sellers of motor and sailing yachts across South Florida, the Bahamas, and the Caribbean. As a captain-owned firm, we read a boat the way an operator reads it. We carry both publicly listed vessels and a private dossier of yachts available off-market through long-standing client relationships. Page: https://acmarine.co/services/brokerage
+
+### Yacht Management
+We serve as your shoreside office, running the day-to-day operations of your vessel with the perspective of someone who has actually managed yachts at sea. Day-to-day operations, accounts, insurance, regulatory filings, payroll, classification, and crew contracts are administered under retainer. You receive a clear monthly report and direct communication on every matter that affects your boat. Page: https://acmarine.co/services/yacht-management
+
+### Detailing & Daily Stewardship
+Wash, polish, varnish, paint, teak, stainless, and interior care for yachts kept in Florida. We contract our detailing crews directly, supervise them on the dock, photograph the result, and audit time on the vessel. The same crew supervises your yacht month after month so the standard is consistent. Page: https://acmarine.co/services/detailing
+
+### Refit & Project Oversight
+From cosmetic refinishing to engineering repower, we represent owners at the shipyard until launch. We attend the yard daily, audit invoices line by line, photograph progress, manage the schedule, and stay through launch trials. Page: https://acmarine.co/services/refit
+
+### Crew Placement
+We place captains, mates, engineers, chefs, stewards, and deckhands on yachts across South Florida and the Caribbean. As a captain-owned firm we know the South Florida crew network personally. We focus on long-tenure placements: senior captain matches with our clients average just under three years, against an industry average closer to fourteen months. Page: https://acmarine.co/services/crew
+
+### Charter Programmes
+For owners, we structure and operate a charter program for your vessel. For clients chartering, we run a discreet placement process, vet every candidate yacht, and have a member of our team present at embarkation. Page: https://acmarine.co/services/charter
+
+### Engineering & Technical Counsel
+Repower studies, propulsion modelling, navigation electronics, and classification advisory, all handled in-house. We commission and review repower studies, propulsion modelling, hull modification analyses, and classification submissions. Page: https://acmarine.co/services/engineering
+
+### Berths, Transits & Concierge
+Marina reservations, customs, transit planning, fuel, and provisioning, all handled by people who know the docks personally. Standing relationships at priority marinas across Florida, the Bahamas, and the Caribbean. Page: https://acmarine.co/services/concierge
+
+## Locations
+
+### Miami
+Our home port and the center of yachting on Florida's east coast. From the marinas of Miami Beach and Coconut Grove out through Government Cut, we work on vessels here daily. Page: https://acmarine.co/locations/miami
+
+### Fort Lauderdale
+The largest yachting market in the Western Hemisphere. We work with owners and crews across Bahia Mar, Pier Sixty-Six, Las Olas, and the Dania Cut-Off Canal yards. Page: https://acmarine.co/locations/fort-lauderdale
+
+### Palm Beach
+Palm Beach and the broader county host some of the most private yachting in the United States, from Lake Worth Inlet to Jupiter. Page: https://acmarine.co/locations/palm-beach
+
+### Naples
+The Gulf Coast counterpart to South Florida's Atlantic ports. Year-round access to the Bahamas circuit and a shoulder-season alternative to the Atlantic. Page: https://acmarine.co/locations/naples
+
+## Brokerage Listings
+
+Our current inventory of yachts for sale is published at https://acmarine.co/brokerage. Many of our listings are not shown publicly and are presented to retained buyers under confidence.
+
+## Articles & Guides
+
+Practical writing on buying and selling yachts, ongoing management, detailing, and crew placement. Index at https://acmarine.co/articles.
+
+- How to Buy a Yacht in Florida: A 2026 Owner's Guide. https://acmarine.co/articles/how-to-buy-a-yacht-in-florida
+- How to Sell Your Yacht in Florida: Pricing, Listing, and Closing. https://acmarine.co/articles/how-to-sell-your-yacht-in-florida
+- Pre-Purchase Yacht Survey Checklist: What Buyers Routinely Miss. https://acmarine.co/articles/pre-purchase-yacht-survey-checklist
+- Yacht Detailing in South Florida: Why Salt Air Doubles the Cost of Inattention. https://acmarine.co/articles/yacht-detailing-south-florida-guide
+- What Yacht Management Actually Costs (And Why Owners Hire It). https://acmarine.co/articles/yacht-management-cost-explained
+- Florida Yacht Maintenance Calendar: Month by Month. https://acmarine.co/articles/florida-yacht-maintenance-calendar
+- How to Hire a Yacht Captain in South Florida: Licensing, Pay, and Vetting. https://acmarine.co/articles/hire-yacht-captain-south-florida
+- Yacht Crew Certifications Explained: STCW, ENG1, and Yachtmaster. https://acmarine.co/articles/yacht-crew-certifications-stcw-eng1-yachtmaster
+
+## Service Areas
+
+Primary: South Florida (Miami, Fort Lauderdale, Palm Beach, Naples). Operating region: Florida, the Bahamas, the Caribbean, the Atlantic coast of the United States.
+
+## Contact
+
+- Email: office@acmarine.co
+- Site: https://acmarine.co/
+- Sitemap: https://acmarine.co/sitemap.xml
+- Inquiry form: https://acmarine.co/contact
+
+## Machine-Readable
+
+- Sitemap (XML): https://acmarine.co/sitemap.xml
+- Agent card (JSON): https://acmarine.co/.well-known/agent.json
+- Structured data: ProfessionalService, BreadcrumbList, NewsArticle, Service, FAQPage JSON-LD embedded on relevant pages.

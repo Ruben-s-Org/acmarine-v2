@@ -50,5 +50,40 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
+    routeRules: {
+      // Agent-readiness: serve llms-full.txt as markdown, llms.txt as plain.
+      // Add Link headers + cacheable for one hour.
+      '/llms.txt': {
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'public, max-age=3600',
+          'Link': '<https://acmarine.co/sitemap.xml>; rel="sitemap", <https://acmarine.co/.well-known/agent.json>; rel="describedby"',
+        },
+      },
+      '/llms-full.txt': {
+        headers: {
+          'Content-Type': 'text/markdown; charset=utf-8',
+          'Cache-Control': 'public, max-age=3600',
+        },
+      },
+      '/.well-known/agent.json': {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Cache-Control': 'public, max-age=3600',
+          'Access-Control-Allow-Origin': '*',
+        },
+      },
+      '/robots.txt': {
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'public, max-age=3600',
+        },
+      },
+      '/sitemap.xml': {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      },
+    },
   },
 })

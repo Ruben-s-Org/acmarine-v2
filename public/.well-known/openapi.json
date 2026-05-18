@@ -1,0 +1,101 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Aldridge & Charles Marine Public API",
+    "description": "Public, read-mostly endpoints for the acmarine.co site. Used by the site itself and available to agents for retrieving published articles, current yacht listings, and submitting inquiries.",
+    "version": "1.0.0",
+    "contact": { "email": "office@acmarine.co" }
+  },
+  "servers": [{ "url": "https://acmarine.co" }],
+  "paths": {
+    "/api/articles": {
+      "get": {
+        "summary": "List published articles and guides",
+        "operationId": "listArticles",
+        "responses": {
+          "200": {
+            "description": "Array of articles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "articles": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Article" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/articles/{slug}": {
+      "get": {
+        "summary": "Get an article by slug",
+        "operationId": "getArticle",
+        "parameters": [
+          { "name": "slug", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "The article" },
+          "404": { "description": "Not found" }
+        }
+      }
+    },
+    "/api/listings": {
+      "get": {
+        "summary": "List yachts currently for sale",
+        "operationId": "listListings",
+        "responses": { "200": { "description": "Array of listings" } }
+      }
+    },
+    "/api/inquire": {
+      "post": {
+        "summary": "Submit an inquiry",
+        "operationId": "submitInquiry",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Inquiry" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Inquiry received" } }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Article": {
+        "type": "object",
+        "properties": {
+          "slug": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "category": { "type": "string" },
+          "content": { "type": "string", "description": "HTML body" },
+          "image_url": { "type": "string", "format": "uri" },
+          "keywords": { "type": "array", "items": { "type": "string" } },
+          "published_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Inquiry": {
+        "type": "object",
+        "required": ["name", "message"],
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "phone": { "type": "string" },
+          "message": { "type": "string" },
+          "service": { "type": "string" },
+          "listing_slug": { "type": "string" },
+          "listing_name": { "type": "string" }
+        }
+      }
+    }
+  }
+}

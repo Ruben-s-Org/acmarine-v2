@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Aldridge & Charles Marine",
+  "alternateName": "ACMarine",
+  "description": "A captain-owned yachting firm based in South Florida. We handle yacht brokerage, management and detailing, refit and engineering, charter, and crew placement for owners along the Atlantic coast and across the Caribbean.",
+  "url": "https://acmarine.co/",
+  "icon": "https://acmarine.co/favicon.png",
+  "logo": "https://acmarine.co/img/logo.png",
+  "contact": {
+    "email": "office@acmarine.co",
+    "form": "https://acmarine.co/contact"
+  },
+  "areaServed": [
+    "South Florida",
+    "Florida",
+    "The Bahamas",
+    "Caribbean",
+    "Atlantic United States"
+  ],
+  "categories": [
+    "Yacht Brokerage",
+    "Yacht Management",
+    "Yacht Detailing",
+    "Yacht Refit",
+    "Yacht Engineering",
+    "Yacht Charter",
+    "Yacht Crew Placement",
+    "Marine Concierge"
+  ],
+  "discovery": {
+    "sitemap": "https://acmarine.co/sitemap.xml",
+    "llmsTxt": "https://acmarine.co/llms.txt",
+    "llmsFullTxt": "https://acmarine.co/llms-full.txt",
+    "robots": "https://acmarine.co/robots.txt"
+  },
+  "endpoints": {
+    "articlesIndex": "https://acmarine.co/api/articles",
+    "listingsIndex": "https://acmarine.co/api/listings",
+    "inquireSubmit": "https://acmarine.co/api/inquire"
+  },
+  "capabilities": [
+    {
+      "name": "browse-articles",
+      "description": "Read published articles and guides on yacht buying, selling, management, and crew placement.",
+      "url": "https://acmarine.co/articles",
+      "method": "GET"
+    },
+    {
+      "name": "browse-yachts-for-sale",
+      "description": "Read currently listed motor and sailing yachts for sale across South Florida and the Caribbean.",
+      "url": "https://acmarine.co/brokerage",
+      "method": "GET"
+    },
+    {
+      "name": "submit-inquiry",
+      "description": "Submit a written inquiry about a vessel, service, or general matter. We reply personally.",
+      "url": "https://acmarine.co/api/inquire",
+      "method": "POST"
+    }
+  ],
+  "authentication": {
+    "type": "none",
+    "notes": "Public site. The /api/admin/* surface requires session cookie issued by /api/admin/login and is not intended for agent traffic."
+  },
+  "license": "All rights reserved. Aldridge & Charles Marine grants permission to index, summarize, and cite this content with attribution. See https://acmarine.co/terms for full terms.",
+  "lastModified": "2026-05-18"
+}
