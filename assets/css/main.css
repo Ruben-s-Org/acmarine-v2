@@ -52,6 +52,13 @@
   h1 em, h2 em { @apply text-brass not-italic; font-style: italic; }
 
   input, textarea, select, button { font-size: 16px; }
+
+  /* iOS Safari focuses an input and zooms the viewport unless the field's
+     computed font-size is >= 16px. Shadcn defaults are 14px, so force 16px
+     on any focusable form control across the whole app. */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
 }
 
 @layer components {
