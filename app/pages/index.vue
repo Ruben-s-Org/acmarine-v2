@@ -88,20 +88,20 @@ const services = [
     <section id="approach" class="section-pad">
       <div class="section-narrow">
         <p class="eyebrow">Approach</p>
-        <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 18ch">A house, not a firm.</h2>
+        <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 20ch">Built for owners, not transactions.</h2>
         <div class="mt-10 space-y-6">
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
-            Aldridge &amp; Charles is built on four values: trust earned by repetition, reliability proved by record, restraint practised as a discipline, and time at sea as the only metric that finally matters.
+            We work for a closed roster of principals. The office takes engagements it can answer with care and declines those it cannot. The aim is to keep your vessel ready for guests, not ready for inspection.
           </p>
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
-            We are paid by retainer. Introductions come from clients, captains, and a small number of trusted brokers. If you have arrived here by way of search, you are welcome to write; we will answer plainly.
+            We are paid by retainer and by clean commissions on the work we openly do. We take no kickbacks from yards, marinas, or vendors. Every recommendation we make stands on merit; every invoice we send is one we are prepared to defend in writing.
           </p>
         </div>
         <ul class="creed-list">
-          <li>One principal, one director, one telephone number.</li>
-          <li>No referral fees, no kickbacks, no surprises on the invoice.</li>
-          <li>Annual books reviewed by independent maritime counsel.</li>
-          <li>Every vessel handled, presented, or detailed only after the office has stood aboard.</li>
+          <li>One principal, one director, one number that does not change.</li>
+          <li>Retainers and clean commissions. No referral fees, no vendor kickbacks.</li>
+          <li>Surveys, sea trials and yard work overseen by the office in person.</li>
+          <li>Conversations, records and identities held in standing confidence.</li>
         </ul>
       </div>
     </section>

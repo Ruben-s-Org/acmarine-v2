@@ -4,6 +4,7 @@ import { Input } from '~/components/ui/input'
 import { Textarea } from '~/components/ui/textarea'
 import { Label } from '~/components/ui/label'
 import { Button } from '~/components/ui/button'
+import { MailCheck } from 'lucide-vue-next'
 import { useInquire } from '~/composables/useInquire'
 
 const { open, listingSlug, listingName, service, closeDialog } = useInquire()
@@ -13,6 +14,7 @@ const phone = ref('')
 const message = ref('')
 const note = ref('')
 const submitting = ref(false)
+const submitted = ref(false)
 
 const title = computed(() => {
   if (service.value) return `${service.value}.`
@@ -21,8 +23,12 @@ const title = computed(() => {
 })
 
 watch(open, (v) => {
-  if (!v) return
+  if (!v) {
+    setTimeout(() => { submitted.value = false; note.value = '' }, 250)
+    return
+  }
   note.value = ''
+  submitted.value = false
   if (service.value && !message.value.trim()) {
     message.value = `I would like to inquire about your ${service.value} service.`
   } else if (listingName.value && !message.value.trim()) {
@@ -47,21 +53,15 @@ async function submit(e: Event) {
     await $fetch('/api/inquire', {
       method: 'POST',
       body: {
-        name: n,
-        email: e1,
-        phone: p1,
-        message: m,
+        name: n, email: e1, phone: p1, message: m,
         service: service.value || null,
         listing_slug: listingSlug.value || null,
         listing_name: listingName.value || null,
       },
     })
-    note.value = 'Thank you. The office will write to you.'
-    name.value = ''
-    email.value = ''
-    phone.value = ''
-    message.value = ''
-    setTimeout(() => closeDialog(), 1200)
+    submitted.value = true
+    name.value = ''; email.value = ''; phone.value = ''; message.value = ''
+    setTimeout(() => closeDialog(), 4500)
   } catch (err) {
     note.value = 'Something went wrong. Please write to office@acmarine.co directly.'
   } finally {
@@ -73,7 +73,20 @@ async function submit(e: Event) {
 <template>
   <Dialog v-model:open="open">
     <DialogContent class="bg-ivory-soft border-0 max-w-[560px] p-0 shadow-2xl">
-      <div class="p-8">
+      <!-- THANK YOU STATE -->
+      <div v-if="submitted" class="p-10 sm:p-14 text-center flex flex-col items-center">
+        <div class="w-16 h-16 flex items-center justify-center bg-navy text-ivory mb-6">
+          <MailCheck class="w-8 h-8" :stroke-width="1.5" />
+        </div>
+        <DialogTitle class="font-serif text-3xl md:text-4xl text-navy mb-3" style="line-height: 1.1">Thank you.</DialogTitle>
+        <DialogDescription class="font-serif italic text-lg text-ink/75 max-w-[34ch] leading-snug">
+          The office has your note. We will write to you promptly.
+        </DialogDescription>
+        <button type="button" class="mt-8 text-xs uppercase tracking-widest text-brass-deep hover:text-navy underline underline-offset-4 decoration-brass/40" @click="closeDialog">Close</button>
+      </div>
+
+      <!-- FORM STATE -->
+      <div v-else class="p-8">
         <p class="eyebrow mb-3">Inquire</p>
         <DialogTitle class="font-serif text-3xl text-navy mb-2">{{ title }}</DialogTitle>
         <DialogDescription class="text-sm text-ink/70 mb-6 leading-relaxed">
