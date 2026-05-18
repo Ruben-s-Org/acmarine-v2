@@ -4,31 +4,31 @@
 
 ## Practices
 
-- [Yacht Management](https://acmarine.com/services/yacht-management): Flag, finance, compliance, payroll, insurance, crew.
-- [Brokerage & Acquisition](https://acmarine.com/services/brokerage): Off-market vessels, sea trials, surveys, considered purchases.
-- [Refit & Project Oversight](https://acmarine.com/services/refit): Owner's representative shipyard-side.
-- [Crew Placement](https://acmarine.com/services/crew): Vetted captains, engineers, chefs, stewards, deckhands.
-- [Detailing & Daily Stewardship](https://acmarine.com/services/detailing): Varnish, paint, leather, teak, polish, deep wash by hand.
-- [Charter Programmes](https://acmarine.com/services/charter): Itineraries shaped to the principal.
-- [Engineering & Technical Counsel](https://acmarine.com/services/engineering): Re-power studies, propulsion modelling, electronics, classification.
-- [Berths, Transits & Concierge](https://acmarine.com/services/concierge): Moorings, customs, transits, provisioning.
+- [Yacht Management](https://acmarine.co/services/yacht-management): Flag, finance, compliance, payroll, insurance, crew.
+- [Brokerage & Acquisition](https://acmarine.co/services/brokerage): Off-market vessels, sea trials, surveys, considered purchases.
+- [Refit & Project Oversight](https://acmarine.co/services/refit): Owner's representative shipyard-side.
+- [Crew Placement](https://acmarine.co/services/crew): Vetted captains, engineers, chefs, stewards, deckhands.
+- [Detailing & Daily Stewardship](https://acmarine.co/services/detailing): Varnish, paint, leather, teak, polish, deep wash by hand.
+- [Charter Programmes](https://acmarine.co/services/charter): Itineraries shaped to the principal.
+- [Engineering & Technical Counsel](https://acmarine.co/services/engineering): Re-power studies, propulsion modelling, electronics, classification.
+- [Berths, Transits & Concierge](https://acmarine.co/services/concierge): Moorings, customs, transits, provisioning.
 
 ## Locations
 
-- [Monaco](https://acmarine.com/locations/monaco)
-- [Antibes](https://acmarine.com/locations/antibes)
-- [Newport](https://acmarine.com/locations/newport)
-- [Seattle](https://acmarine.com/locations/seattle)
+- [Monaco](https://acmarine.co/locations/monaco)
+- [Antibes](https://acmarine.co/locations/antibes)
+- [Newport](https://acmarine.co/locations/newport)
+- [Seattle](https://acmarine.co/locations/seattle)
 
 ## Fleet
 
-- [The Fleet](https://acmarine.com/fleet): vessels currently presented for sale, charter, and management.
+- [The Fleet](https://acmarine.co/fleet): vessels currently presented for sale, charter, and management.
 
 ## Articles
 
-- [Articles](https://acmarine.com/articles): notes from the office on yacht industry, refit, brokerage, crew, charter.
+- [Articles](https://acmarine.co/articles): notes from the office on yacht industry, refit, brokerage, crew, charter.
 
 ## Contact
 
-- Email: office@acmarine.com
-- Site: https://acmarine.com/
+- Email: office@acmarine.co
+- Site: https://acmarine.co/

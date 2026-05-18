@@ -8,7 +8,7 @@ const svc = findService(String(route.params.service))
 if (!svc) throw createError({ statusCode: 404, statusMessage: 'Not found', fatal: true })
 const { openDialog } = useInquire()
 
-const canonical = `https://acmarine.com/services/${svc.slug}`
+const canonical = `https://acmarine.co/services/${svc.slug}`
 useSeoMeta({
   title: `${svc.name}. Aldridge & Charles Marine.`,
   description: `${svc.intro}`,
@@ -18,7 +18,7 @@ useHead({
   script: [
     { type: 'application/ld+json', innerHTML: JSON.stringify({
       '@context': 'https://schema.org', '@type': 'Service', serviceType: svc.name, name: `${svc.name} by Aldridge & Charles Marine`, description: svc.description,
-      provider: { '@type': 'ProfessionalService', name: 'Aldridge & Charles Marine', url: 'https://acmarine.com/' },
+      provider: { '@type': 'ProfessionalService', name: 'Aldridge & Charles Marine', url: 'https://acmarine.co/' },
       areaServed: LOCATIONS.map(l => ({ '@type': 'Place', name: l.name })),
     }) },
     { type: 'application/ld+json', innerHTML: JSON.stringify({
@@ -28,8 +28,8 @@ useHead({
     { type: 'application/ld+json', innerHTML: JSON.stringify({
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.com/' },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://acmarine.com/#services' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.co/' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://acmarine.co/#services' },
         { '@type': 'ListItem', position: 3, name: svc.name, item: canonical },
       ],
     }) },

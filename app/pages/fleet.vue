@@ -13,7 +13,7 @@ useSeoMeta({
   title: 'The Fleet. Yachts currently presented by Aldridge & Charles Marine.',
   description: 'Yachts currently presented by Aldridge & Charles Marine. A short, considered roster of vessels for sale, charter, and management.',
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.com/fleet' }] })
+useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/fleet' }] })
 
 const { data } = await useFetch<{ listings: Listing[] }>('/api/listings')
 const all = computed(() => data.value?.listings || [])

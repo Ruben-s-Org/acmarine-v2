@@ -9,7 +9,7 @@ const loc = findLocation(String(route.params.location))
 if (!svc || !loc) throw createError({ statusCode: 404, statusMessage: 'Not found', fatal: true })
 const { openDialog } = useInquire()
 
-const canonical = `https://acmarine.com/services/${svc.slug}/${loc.slug}`
+const canonical = `https://acmarine.co/services/${svc.slug}/${loc.slug}`
 useSeoMeta({
   title: `${svc.name} in ${loc.name}. Aldridge & Charles Marine.`,
   description: `${svc.name} in ${loc.name}: ${svc.tagline} A private marine office answering on the same telephone wherever in the world she lies.`.slice(0, 158),
@@ -19,12 +19,12 @@ useHead({
   script: [
     { type: 'application/ld+json', innerHTML: JSON.stringify({
       '@context': 'https://schema.org', '@type': 'Service', serviceType: svc.name, name: `${svc.name} in ${loc.name}`, description: svc.description,
-      provider: { '@type': 'ProfessionalService', name: 'Aldridge & Charles Marine', url: 'https://acmarine.com/' },
+      provider: { '@type': 'ProfessionalService', name: 'Aldridge & Charles Marine', url: 'https://acmarine.co/' },
       areaServed: { '@type': 'Place', name: loc.name, geo: loc.geo ? { '@type': 'GeoCoordinates', latitude: loc.geo.lat, longitude: loc.geo.lng } : undefined },
     }) },
     { type: 'application/ld+json', innerHTML: JSON.stringify({
       '@context': 'https://schema.org', '@type': 'ProfessionalService',
-      name: `Aldridge & Charles Marine ${loc.name}`, url: `https://acmarine.com/locations/${loc.slug}`,
+      name: `Aldridge & Charles Marine ${loc.name}`, url: `https://acmarine.co/locations/${loc.slug}`,
       address: { '@type': 'PostalAddress', addressLocality: loc.name, addressCountry: loc.country },
       knowsAbout: [svc.name], areaServed: { '@type': 'Place', name: loc.region },
     }) },
@@ -35,9 +35,9 @@ useHead({
     { type: 'application/ld+json', innerHTML: JSON.stringify({
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.com/' },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://acmarine.com/#services' },
-        { '@type': 'ListItem', position: 3, name: svc.name, item: `https://acmarine.com/services/${svc.slug}` },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.co/' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://acmarine.co/#services' },
+        { '@type': 'ListItem', position: 3, name: svc.name, item: `https://acmarine.co/services/${svc.slug}` },
         { '@type': 'ListItem', position: 4, name: loc.name, item: canonical },
       ],
     }) },

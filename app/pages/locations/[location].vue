@@ -7,7 +7,7 @@ const loc = findLocation(String(route.params.location))
 if (!loc) throw createError({ statusCode: 404, statusMessage: 'Not found', fatal: true })
 const { openDialog } = useInquire()
 
-const canonical = `https://acmarine.com/locations/${loc.slug}`
+const canonical = `https://acmarine.co/locations/${loc.slug}`
 useSeoMeta({
   title: `${loc.name}. Aldridge & Charles Marine.`,
   description: `Aldridge & Charles Marine in ${loc.name}, ${loc.region}: yacht management, brokerage, refit, charter, crew, detailing, engineering counsel, and concierge.`.slice(0, 158),
@@ -26,8 +26,8 @@ useHead({
     { type: 'application/ld+json', innerHTML: JSON.stringify({
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.com/' },
-        { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://acmarine.com/' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.co/' },
+        { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://acmarine.co/' },
         { '@type': 'ListItem', position: 3, name: loc.name, item: canonical },
       ],
     }) },

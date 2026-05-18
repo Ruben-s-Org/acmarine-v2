@@ -59,7 +59,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 useHead({
-  link: [{ rel: 'canonical', href: `https://acmarine.com/yacht/${l.slug}` }],
+  link: [{ rel: 'canonical', href: `https://acmarine.co/yacht/${l.slug}` }],
   script: [
     {
       type: 'application/ld+json',
@@ -78,8 +78,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.com' },
-          { '@type': 'ListItem', position: 2, name: 'Fleet', item: 'https://acmarine.com/fleet' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://acmarine.co' },
+          { '@type': 'ListItem', position: 2, name: 'Fleet', item: 'https://acmarine.co/fleet' },
           { '@type': 'ListItem', position: 3, name: l.name },
         ],
       }),
@@ -123,7 +123,7 @@ useHead({
 
           <div class="flex gap-3 flex-wrap mt-2">
             <button type="button" class="bg-navy text-ivory hover:bg-navy-deep px-5 py-3 text-sm tracking-wider" @click="openDialog({ listingSlug: l.slug, listingName: l.name })">Request a Viewing</button>
-            <a :href="`mailto:office@acmarine.com?subject=${encodeURIComponent(l.name)}`" class="text-navy border border-rule hover:border-navy px-5 py-3 text-sm tracking-wider">Email the office</a>
+            <a :href="`mailto:office@acmarine.co?subject=${encodeURIComponent(l.name)}`" class="text-navy border border-rule hover:border-navy px-5 py-3 text-sm tracking-wider">Email the office</a>
           </div>
         </div>
       </section>

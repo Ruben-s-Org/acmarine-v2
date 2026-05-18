@@ -7,12 +7,12 @@ useSeoMeta({
   description: 'Aldridge & Charles Marine: a private office handling yacht management, brokerage, refit, charter, crew, detailing, and every other service a great yacht requires.',
   ogTitle: 'Aldridge & Charles Marine',
   ogDescription: 'A private office handling every service a great yacht requires.',
-  ogImage: 'https://acmarine.com/og.svg',
+  ogImage: 'https://acmarine.co/og.svg',
   twitterCard: 'summary_large_image',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: 'https://acmarine.com/' }],
+  link: [{ rel: 'canonical', href: 'https://acmarine.co/' }],
   script: [
     {
       type: 'application/ld+json',
@@ -21,7 +21,7 @@ useHead({
         '@type': 'ProfessionalService',
         name: 'Aldridge & Charles Marine',
         alternateName: 'ACMarine',
-        url: 'https://acmarine.com/',
+        url: 'https://acmarine.co/',
         description: 'A private marine office. Yacht management, brokerage, refit, charter, detailing, crew placement, engineering counsel, and concierge.',
         areaServed: [
           { '@type': 'Place', name: 'Mediterranean' },
@@ -29,7 +29,7 @@ useHead({
           { '@type': 'Place', name: 'Atlantic' },
           { '@type': 'Place', name: 'Pacific' },
         ],
-        contactPoint: { '@type': 'ContactPoint', email: 'office@acmarine.com', contactType: 'office' },
+        contactPoint: { '@type': 'ContactPoint', email: 'office@acmarine.co', contactType: 'office' },
       }),
     },
   ],
@@ -37,9 +37,9 @@ useHead({
 
 const services = [
   { name: 'Brokerage & Acquisition', short: 'Brokerage', body: 'Off-market vessels, selectively presented. Sea trials in our own time. Surveys we trust. A purchase process measured in months, not weeks.' },
+  { name: 'Detailing & Daily Stewardship', short: 'Detailing', body: 'Varnish, paint, leather, teak, polish, deep wash and rinse. The hand work that decides whether a vessel ages with grace or with age.' },
   { name: 'Charter Programmes', short: 'Charter', body: 'Itineraries shaped to the principal, hospitality directed by people who have set the table themselves. Guests welcomed by name, never by spreadsheet.' },
   { name: 'Crew Placement', short: 'Crew', body: 'Captains, engineers, chefs, stewards, deckhands. People we have known for two decades or vetted before we put them forward.' },
-  { name: 'Detailing & Daily Stewardship', short: 'Detailing', body: 'Varnish, paint, leather, teak, polish, deep wash and rinse. The hand work that decides whether a vessel ages with grace or with age.' },
 ]
 </script>
 
@@ -110,12 +110,12 @@ const services = [
         <p class="eyebrow">Inquire</p>
         <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 18ch">Write to the office.</h2>
         <p class="body-prose" style="margin-top: clamp(1rem, 2.4vw, 1.6rem); margin-bottom: clamp(1.5rem, 3vw, 2.5rem)">
-          Briefly tell us about your vessel or what you are looking for. The director on duty will respond within two working days.
+          Briefly tell us about your vessel or what you are looking for. The director on duty will respond promptly.
         </p>
         <button type="button" class="btn-contact" @click="openDialog()">Open the inquiry form</button>
         <p class="direct">
           Or write directly:
-          <a href="mailto:office@acmarine.com">office@acmarine.com</a>
+          <a href="mailto:office@acmarine.co">office@acmarine.co</a>
         </p>
       </div>
     </section>

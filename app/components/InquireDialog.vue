@@ -63,7 +63,7 @@ async function submit(e: Event) {
     message.value = ''
     setTimeout(() => closeDialog(), 1200)
   } catch (err) {
-    note.value = 'Something went wrong. Please write to office@acmarine.com directly.'
+    note.value = 'Something went wrong. Please write to office@acmarine.co directly.'
   } finally {
     submitting.value = false
   }
@@ -77,7 +77,7 @@ async function submit(e: Event) {
         <p class="eyebrow mb-3">Inquire</p>
         <DialogTitle class="font-serif text-3xl text-navy mb-2">{{ title }}</DialogTitle>
         <DialogDescription class="text-sm text-ink/70 mb-6 leading-relaxed">
-          Tell us, briefly. The director on duty replies within two working days.
+          Tell us, briefly. The director on duty replies promptly.
         </DialogDescription>
 
         <form class="grid grid-cols-1 sm:grid-cols-2 gap-4" @submit="submit" novalidate>
@@ -105,7 +105,7 @@ async function submit(e: Event) {
 
         <p class="mt-6 font-serif text-base text-ink/70">
           Or write directly:
-          <a href="mailto:office@acmarine.com" class="underline underline-offset-4 decoration-brass text-navy">office@acmarine.com</a>
+          <a href="mailto:office@acmarine.co" class="underline underline-offset-4 decoration-brass text-navy">office@acmarine.co</a>
         </p>
       </div>
     </DialogContent>

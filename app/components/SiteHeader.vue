@@ -9,7 +9,7 @@ const { openDialog } = useInquire()
 const drawerOpen = ref(false)
 
 const nav = [
-  { href: '/fleet', label: 'Fleet' },
+  { href: '/fleet', label: 'Brokerage' },
   { href: '/#services', label: 'Services' },
   { href: '/articles', label: 'Articles' },
 ]

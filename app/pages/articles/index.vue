@@ -7,7 +7,7 @@ useSeoMeta({
   title: 'Articles. Aldridge & Charles Marine.',
   description: 'Notes from the office on yacht industry analysis, refit, brokerage, crew, and charter.',
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.com/articles' }] })
+useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/articles' }] })
 
 const { data } = await useFetch<{ articles: Article[] }>('/api/articles')
 const articles = computed(() => data.value?.articles || [])

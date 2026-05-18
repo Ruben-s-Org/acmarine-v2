@@ -97,7 +97,7 @@ function buildHtml(p: InquiryPayload): string {
       </tr>
       <tr>
         <td style="background:#f5f1e8;padding:16px 32px;border-top:1px solid #e8e2d3;text-align:center;">
-          <div style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:12px;color:#7a5e30;">acmarine.com</div>
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:12px;color:#7a5e30;">acmarine.co</div>
         </td>
       </tr>
     </table>

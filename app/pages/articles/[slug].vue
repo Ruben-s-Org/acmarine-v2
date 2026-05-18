@@ -10,7 +10,7 @@ if (!a.value) throw createError({ statusCode: 404, statusMessage: 'Not found', f
 
 const heroImg = computed(() => a.value.image_url || pickYachtPhoto(a.value.slug))
 const { openDialog } = useInquire()
-const canonical = `https://acmarine.com/articles/${a.value.slug}`
+const canonical = `https://acmarine.co/articles/${a.value.slug}`
 
 useSeoMeta({
   title: `${a.value.title}. Aldridge & Charles Marine.`,
@@ -31,7 +31,7 @@ useHead({
       dateModified: a.value.created_at,
       image: a.value.image_url ? [a.value.image_url] : undefined,
       author: { '@type': 'Organization', name: 'Aldridge & Charles Marine' },
-      publisher: { '@type': 'Organization', name: 'Aldridge & Charles Marine', url: 'https://acmarine.com/' },
+      publisher: { '@type': 'Organization', name: 'Aldridge & Charles Marine', url: 'https://acmarine.co/' },
       mainEntityOfPage: canonical,
       articleSection: a.value.category,
       keywords: (a.value.keywords || []).join(', '),
@@ -64,7 +64,7 @@ useHead({
       <section class="mt-16 bg-navy text-ivory px-6 md:px-10 py-12 -mx-4 md:mx-0">
         <p class="text-[0.7rem] uppercase tracking-widest text-brass mb-3">Inquire</p>
         <h2 class="font-serif text-ivory text-3xl md:text-4xl mb-4">Write to the office.</h2>
-        <p class="text-ivory/78 max-w-[56ch] mb-6 leading-relaxed">If this article raised a question worth answering, write. The director on duty replies within two working days.</p>
+        <p class="text-ivory/78 max-w-[56ch] mb-6 leading-relaxed">If this article raised a question worth answering, write. The director on duty replies promptly.</p>
         <button type="button" class="bg-white text-navy hover:bg-ivory-soft px-7 py-4 text-sm tracking-wider" @click="openDialog()">Open the inquiry form</button>
       </section>
     </article>

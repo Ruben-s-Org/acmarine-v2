@@ -3,7 +3,7 @@ useSeoMeta({
   title: 'Privacy Notice. Aldridge & Charles Marine.',
   description: 'Privacy notice setting out how Aldridge & Charles Marine handles personal information of principals, prospective clients, crew candidates and site visitors.',
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.com/privacy' }] })
+useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/privacy' }] })
 
 const sections = [
   { id: 'about', title: 'About this notice' },
@@ -59,7 +59,7 @@ const sections = [
           <h2>2. Who we are</h2>
           <p>2.1 The office is the controller in respect of the personal information described in this notice. Correspondence on data protection matters may be addressed to:</p>
           <ul class="list-disc pl-6 space-y-1">
-            <li><strong>Email:</strong> <a href="mailto:office@acmarine.com" class="text-brass-deep underline underline-offset-4">office@acmarine.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:office@acmarine.co" class="text-brass-deep underline underline-offset-4">office@acmarine.co</a></li>
             <li><strong>Subject line:</strong> "Data Protection"</li>
           </ul>
           <p>2.2 Where the office is required by Applicable Law to appoint a representative in the European Union or the United Kingdom, that representative's details will be made available on request.</p>
@@ -171,7 +171,7 @@ const sections = [
           </ul>
           <p>11.2 Certain rights may be limited or qualified by Applicable Law. For example, we may decline a request for erasure to the extent that we are required by law, professional convention or insurance to retain information.</p>
           <p>11.3 Residents of California, Colorado, Connecticut, Virginia, Utah and other US states with comprehensive privacy laws may have additional or differently formulated rights, including the right to opt out of "sale" and "sharing" of personal information (we do not engage in either), the right to limit the use of sensitive personal information (we collect only what is necessary for the engagement), and the right to non-discrimination for exercising rights. To exercise any of those rights, please use the contact details at clause 16.</p>
-          <p>11.4 To exercise any right, please write to <a href="mailto:office@acmarine.com" class="text-brass-deep underline underline-offset-4">office@acmarine.com</a> with the subject line "Data Protection". We may need to verify your identity before acting on a request. We will respond within one (1) month or, where the request is complex or numerous, within such longer period as Applicable Law permits, having notified you of the extension.</p>
+          <p>11.4 To exercise any right, please write to <a href="mailto:office@acmarine.co" class="text-brass-deep underline underline-offset-4">office@acmarine.co</a> with the subject line "Data Protection". We may need to verify your identity before acting on a request. We will respond within one (1) month or, where the request is complex or numerous, within such longer period as Applicable Law permits, having notified you of the extension.</p>
         </section>
 
         <section id="marketing">
@@ -197,7 +197,7 @@ const sections = [
 
         <section id="contact">
           <h2>16. Contact and complaints</h2>
-          <p>16.1 Questions, requests and complaints about this notice or our processing of personal information may be addressed to <a href="mailto:office@acmarine.com" class="text-brass-deep underline underline-offset-4">office@acmarine.com</a> with the subject line "Data Protection".</p>
+          <p>16.1 Questions, requests and complaints about this notice or our processing of personal information may be addressed to <a href="mailto:office@acmarine.co" class="text-brass-deep underline underline-offset-4">office@acmarine.co</a> with the subject line "Data Protection".</p>
           <p>16.2 You have the right to lodge a complaint with a supervisory authority for data protection. In the United Kingdom, the supervisory authority is the Information Commissioner's Office (<a href="https://ico.org.uk" class="text-brass-deep underline underline-offset-4">ico.org.uk</a>). In the European Union, the relevant authority is the data protection authority of the member state in which you are habitually resident, in which you work, or in which the alleged infringement occurred. We would, however, appreciate the chance to address your concern before you approach the supervisory authority.</p>
         </section>
       </article>

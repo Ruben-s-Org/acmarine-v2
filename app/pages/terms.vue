@@ -3,7 +3,7 @@ useSeoMeta({
   title: 'Terms of Engagement. Aldridge & Charles Marine.',
   description: 'Terms of engagement governing services provided by Aldridge & Charles Marine, including brokerage, management, refit, charter, crew placement, and related practices.',
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.com/terms' }] })
+useHead({ link: [{ rel: 'canonical', href: 'https://acmarine.co/terms' }] })
 
 const sections = [
   { id: 'about', title: 'About these terms' },
@@ -275,7 +275,7 @@ const sections = [
 
         <section id="contact">
           <h2>27. Contact</h2>
-          <p>Questions about these Terms may be addressed to the office in writing at <a href="mailto:office@acmarine.com" class="text-brass-deep underline underline-offset-4">office@acmarine.com</a>. The office aims to acknowledge written correspondence within two (2) working days.</p>
+          <p>Questions about these Terms may be addressed to the office in writing at <a href="mailto:office@acmarine.co" class="text-brass-deep underline underline-offset-4">office@acmarine.co</a>. The office aims to acknowledge written correspondence promptly.</p>
         </section>
       </article>
     </main>
