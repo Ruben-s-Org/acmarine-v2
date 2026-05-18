@@ -59,6 +59,7 @@ const services = [
           <a href="#services" class="btn-v1-ghost">View Services</a>
         </div>
       </div>
+      <img src="/img/boat.png" alt="" class="hero-v1-boat" width="2400" height="1792" loading="eager" decoding="async" />
       <div class="hero-v1-rule" aria-hidden="true"></div>
     </section>
 
