@@ -28,7 +28,7 @@ function imageFor(a: Article) { return a.image_url || pickYachtPhoto(a.slug) }
       <div v-if="articles.length" class="flex flex-wrap justify-center gap-6 md:gap-8">
         <NuxtLink v-for="a in articles" :key="a.slug" :to="`/articles/${a.slug}`" class="block flex-1 min-w-[280px] max-w-[420px] bg-white border border-rule hover:border-brass hover:-translate-y-1 transition-all">
           <div class="relative aspect-[4/3] bg-navy overflow-hidden">
-            <img :src="imageFor(a)" :alt="a.title" loading="lazy" class="w-full h-full object-cover">
+            <img :src="imageFor(a)" :alt="a.title" loading="lazy" class="w-full h-full object-cover" @error="(($event.target as HTMLImageElement).src = '/api/images/_meta/stock/stock-01.jpg')">
           </div>
           <div class="p-5 md:p-6">
             <p class="text-[0.7rem] uppercase tracking-widest text-brass-deep mb-2">{{ a.category || 'Article' }} · {{ (a.published_at || a.created_at || '').slice(0, 10) }}</p>

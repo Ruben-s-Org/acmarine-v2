@@ -56,7 +56,7 @@ useHead({
       </header>
 
       <figure class="mb-10">
-        <img :src="heroImg" :alt="a.title" width="1200" height="800" class="w-full aspect-[3/2] object-cover">
+        <img :src="heroImg" :alt="a.title" width="1200" height="800" class="w-full aspect-[3/2] object-cover" @error="(($event.target as HTMLImageElement).src = '/api/images/_meta/stock/stock-01.jpg')">
       </figure>
 
       <div class="article-body text-base md:text-lg leading-loose text-ink/86" v-html="a.content" />
