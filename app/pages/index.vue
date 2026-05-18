@@ -107,7 +107,7 @@ const services = [
         <h2 class="h-section" style="margin-top: clamp(0.6rem, 2vw, 1.4rem); max-width: 20ch">Built for owners.</h2>
         <div class="mt-10 space-y-6">
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
-            Aldridge & Charles Marine is a Florida-based firm with a small, long-tenured team. We work with a limited number of clients each year, which means every owner we serve receives the attention of a senior team member from the first conversation onward.
+            Aldridge & Charles Marine is a Florida-based firm with a reputable, long-tenured team. We work with a limited number of clients each year, which means every owner we serve receives the attention of a senior team member from the first conversation onward.
           </p>
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
             Our pricing is straightforward. Retainers and brokerage commissions are disclosed in writing before any work begins. We do not accept referral fees from yards, marinas, or vendors, which means our recommendations are based on quality and price alone.
