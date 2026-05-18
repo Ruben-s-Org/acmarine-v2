@@ -50,8 +50,7 @@ export const SERVICES: ServiceDef[] = [
     description:
       'Our brokerage practice handles the acquisition and sale of significant yachts for a limited number of clients each year. As a captain-owned firm, we read a boat the way an operator reads it. We carry both publicly listed vessels and a private dossier of yachts available off-market through long-standing client relationships.',
     highlights: [
-      'Off-market dossier maintained for retained buyers',
-      'Straightforward commission structure with no referral fees',
+      'Off-market and publicly listed vessels across South Florida and the Caribbean',
       'Pre-survey condition review by independent licensed surveyors',
       'Closing handled with marine counsel in your jurisdiction',
     ],

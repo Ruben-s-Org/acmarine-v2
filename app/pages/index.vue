@@ -109,13 +109,9 @@ const services = [
           <p class="body-prose" style="color: rgba(26,26,26,0.82)">
             Aldridge &amp; Charles Marine is a captain-owned firm based in South Florida. We work with a limited number of clients each year, with the perspective of an operator rather than a desk.
           </p>
-          <p class="body-prose" style="color: rgba(26,26,26,0.82)">
-            Our pricing is straightforward, and we do not accept referral fees from yards, marinas, or vendors.
-          </p>
         </div>
         <ul class="creed-list">
           <li>Captain-owned and led.</li>
-          <li>Transparent pricing, no referral fees.</li>
           <li>Hands-on at the moments that matter.</li>
           <li>Strict confidentiality, always.</li>
         </ul>
