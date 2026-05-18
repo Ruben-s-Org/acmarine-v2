@@ -59,6 +59,15 @@
   input, textarea, select {
     font-size: 16px !important;
   }
+
+  /* No focus outlines anywhere — menus, modals, filters, inputs, buttons.
+     Kills native browser outline and any stray Tailwind ring shadow. */
+  *:focus, *:focus-visible, *:active {
+    outline: none !important;
+    outline-offset: 0 !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    --tw-ring-offset-shadow: 0 0 #0000 !important;
+  }
 }
 
 @layer components {
