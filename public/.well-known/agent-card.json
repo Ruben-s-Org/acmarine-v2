@@ -1,0 +1,95 @@
+{
+  "protocolVersion": "0.2.0",
+  "name": "Aldridge & Charles Marine",
+  "description": "A captain-owned yachting firm based in South Florida. We handle yacht brokerage, management and detailing, refit and engineering, charter, and crew placement for owners along the Atlantic coast and across the Caribbean.",
+  "url": "https://acmarine.co",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "Aldridge & Charles Marine",
+    "url": "https://acmarine.co"
+  },
+  "iconUrl": "https://acmarine.co/img/logo.png",
+  "documentationUrl": "https://acmarine.co/llms-full.txt",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "supportedInterfaces": [
+    {
+      "transport": "http",
+      "url": "https://acmarine.co/api"
+    }
+  ],
+  "interfaces": [
+    {
+      "transport": "http",
+      "url": "https://acmarine.co/api"
+    }
+  ],
+  "preferredTransport": "http",
+  "additionalInterfaces": [
+    {
+      "transport": "http",
+      "url": "https://acmarine.co/api"
+    }
+  ],
+  "securitySchemes": {},
+  "security": [],
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/plain", "text/markdown", "application/json"],
+  "skills": [
+    {
+      "id": "list_articles",
+      "name": "List articles",
+      "description": "List published articles and guides on buying, selling, managing, detailing, and crewing yachts in South Florida and the Caribbean.",
+      "tags": ["articles", "guides", "yacht", "south-florida", "brokerage", "management", "crew"],
+      "examples": [
+        "Show me articles on buying a yacht in Florida",
+        "What guides do you have on yacht detailing?",
+        "List articles about crew placement"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["application/json", "text/markdown"]
+    },
+    {
+      "id": "get_article",
+      "name": "Get article",
+      "description": "Fetch a single article by its slug. Returns title, description, category, image, and full content as HTML.",
+      "tags": ["articles", "yacht"],
+      "examples": [
+        "Get the article on how to buy a yacht in Florida",
+        "Fetch the yacht-detailing-south-florida-guide article"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["application/json"]
+    },
+    {
+      "id": "list_yachts_for_sale",
+      "name": "List yachts for sale",
+      "description": "List the motor and sailing yachts we currently represent for sale across South Florida and the Caribbean.",
+      "tags": ["brokerage", "yacht", "for-sale", "south-florida", "caribbean"],
+      "examples": [
+        "Show me yachts for sale",
+        "What sailing yachts do you have under 60 feet?",
+        "List your current brokerage inventory"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["application/json"]
+    },
+    {
+      "id": "submit_inquiry",
+      "name": "Submit inquiry",
+      "description": "Submit a written inquiry about a specific vessel, service, or general matter. We reply personally.",
+      "tags": ["inquiry", "contact", "brokerage", "management", "crew", "charter"],
+      "examples": [
+        "Submit an inquiry about your management service",
+        "Contact about the Sunseeker listing",
+        "Ask about crew placement availability"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json"]
+    }
+  ],
+  "supportsAuthenticatedExtendedCard": false
+}

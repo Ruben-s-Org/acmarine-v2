@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "0.1.0",
+  "serverInfo": {
+    "name": "acmarine",
+    "version": "1.0.0",
+    "title": "Aldridge & Charles Marine"
+  },
+  "name": "acmarine",
+  "displayName": "Aldridge & Charles Marine",
+  "description": "Read-only MCP server card for Aldridge & Charles Marine: published articles, yacht listings, and inquiry submission for a captain-owned yachting firm in South Florida.",
+  "publisher": {
+    "name": "Aldridge & Charles Marine",
+    "url": "https://acmarine.co",
+    "email": "office@acmarine.co"
+  },
+  "version": "1.0.0",
+  "homepage": "https://acmarine.co",
+  "documentation": "https://acmarine.co/.well-known/openapi.json",
+  "transports": [
+    {
+      "type": "http",
+      "url": "https://acmarine.co/api",
+      "openapi": "https://acmarine.co/.well-known/openapi.json"
+    }
+  ],
+  "capabilities": {
+    "tools": [
+      {
+        "name": "list_articles",
+        "description": "List published articles and guides on buying, selling, managing, detailing, and crewing yachts.",
+        "endpoint": "https://acmarine.co/api/articles",
+        "method": "GET"
+      },
+      {
+        "name": "get_article",
+        "description": "Fetch a single article by slug.",
+        "endpoint": "https://acmarine.co/api/articles/{slug}",
+        "method": "GET",
+        "parameters": {
+          "type": "object",
+          "properties": { "slug": { "type": "string" } },
+          "required": ["slug"]
+        }
+      },
+      {
+        "name": "list_yachts_for_sale",
+        "description": "List yachts currently for sale by Aldridge & Charles Marine.",
+        "endpoint": "https://acmarine.co/api/listings",
+        "method": "GET"
+      },
+      {
+        "name": "submit_inquiry",
+        "description": "Submit an inquiry. We reply personally.",
+        "endpoint": "https://acmarine.co/api/inquire",
+        "method": "POST",
+        "parameters": {
+          "type": "object",
+          "required": ["name", "message"],
+          "properties": {
+            "name": { "type": "string" },
+            "email": { "type": "string", "format": "email" },
+            "phone": { "type": "string" },
+            "message": { "type": "string" },
+            "service": { "type": "string" },
+            "listing_slug": { "type": "string" },
+            "listing_name": { "type": "string" }
+          }
+        }
+      }
+    ],
+    "resources": [
+      { "uri": "https://acmarine.co/sitemap.xml", "type": "application/xml" },
+      { "uri": "https://acmarine.co/llms.txt", "type": "text/plain" },
+      { "uri": "https://acmarine.co/llms-full.txt", "type": "text/markdown" }
+    ],
+    "prompts": []
+  },
+  "authentication": { "type": "none" }
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "0.2.0",
+  "name": "Aldridge & Charles Marine",
+  "url": "https://acmarine.co",
+  "skills": [
+    {
+      "id": "list_articles",
+      "name": "List articles",
+      "description": "List published articles and guides on buying, selling, managing, detailing, and crewing yachts in South Florida and the Caribbean.",
+      "endpoint": "https://acmarine.co/api/articles",
+      "method": "GET",
+      "outputs": "application/json"
+    },
+    {
+      "id": "get_article",
+      "name": "Get article",
+      "description": "Fetch a single article by its slug.",
+      "endpoint": "https://acmarine.co/api/articles/{slug}",
+      "method": "GET",
+      "parameters": {
+        "type": "object",
+        "required": ["slug"],
+        "properties": { "slug": { "type": "string" } }
+      },
+      "outputs": "application/json"
+    },
+    {
+      "id": "list_yachts_for_sale",
+      "name": "List yachts for sale",
+      "description": "List the motor and sailing yachts we currently represent for sale across South Florida and the Caribbean.",
+      "endpoint": "https://acmarine.co/api/listings",
+      "method": "GET",
+      "outputs": "application/json"
+    },
+    {
+      "id": "submit_inquiry",
+      "name": "Submit inquiry",
+      "description": "Submit a written inquiry about a vessel, service, or general matter. We reply personally.",
+      "endpoint": "https://acmarine.co/api/inquire",
+      "method": "POST",
+      "inputs": "application/json",
+      "parameters": {
+        "type": "object",
+        "required": ["name", "message"],
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "phone": { "type": "string" },
+          "message": { "type": "string" },
+          "service": { "type": "string" },
+          "listing_slug": { "type": "string" },
+          "listing_name": { "type": "string" }
+        }
+      },
+      "outputs": "application/json"
+    }
+  ]
+}
