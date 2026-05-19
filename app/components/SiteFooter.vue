@@ -19,7 +19,7 @@ const links = [
           {{ l.label }}
         </NuxtLink>
       </nav>
-      <p class="text-xs text-ivory/50 mt-2">&copy; {{ year }} Aldridge &amp; Charles Marine. All rights reserved.</p>
+      <p class="text-xs text-ivory/50 mt-2">&copy; {{ year }} Aldridge &amp; Charles Marine Group. All rights reserved.</p>
     </div>
   </footer>
 </template>
