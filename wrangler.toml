@@ -7,9 +7,29 @@ compatibility_flags = ["nodejs_compat"]
 directory = "./.output/public"
 binding = "ASSETS"
 
+# Existing: ACM yacht photos / generated assets.
 [[r2_buckets]]
 binding = "IMAGES"
 bucket_name = "acmarine-images"
 
+# Marketplace platform (multi-tenant brokers, magic-link auth, leads).
+[[d1_databases]]
+binding = "DB"
+database_name = "acmarine"
+database_id = "b44afc56-a3a9-4fe4-983a-876747b8c533"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "9d9d2c11e73a4392bec35e654743d69d"
+
+# Generated PDFs / signed P&S / syndication feeds for the marketplace.
+[[r2_buckets]]
+binding = "BLOB"
+bucket_name = "acmarine"
+
 [vars]
-# Secrets (MAILGUN_*, ADMIN_PASSWORD, SESSION_SECRET) are set via `wrangler secret put`.
+# Secrets set via `wrangler secret put`:
+#   MAILGUN_API_KEY, MAILGUN_DOMAIN, MAILGUN_TO, ADMIN_PASSWORD, SESSION_SECRET
+#   NUXT_SESSION_SECRET  (magic-link cookie signer)
+#   RESEND_API_KEY       (optional, marketplace transactional email)
+#   TURNSTILE_SECRET_KEY (optional, public-form bot protection)

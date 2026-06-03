@@ -138,4 +138,17 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  // Marketplace platform config (multi-tenant brokers, magic-link auth).
+  // Secrets resolve from Worker env: NUXT_SESSION_SECRET, NUXT_RESEND_API_KEY,
+  // NUXT_TURNSTILE_SECRET_KEY, NUXT_PUBLIC_TURNSTILE_SITE_KEY.
+  runtimeConfig: {
+    sessionSecret: '',
+    resendApiKey: '',
+    turnstileSecretKey: '',
+    public: {
+      turnstileSiteKey: '',
+      apexDomain: 'acmarine.co',
+    },
+  },
 })
