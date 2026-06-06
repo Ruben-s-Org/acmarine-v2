@@ -39,13 +39,16 @@ export default defineEventHandler(async (event) => {
   const now = Math.floor(Date.now() / 1000)
   const rateKey = `auth:rate:${email}`
   if (kv) {
-    const raw = await kv.get(rateKey, 'json') as { count: number; windowStart: number } | null
-    const w = raw && now - raw.windowStart < RATE_LIMIT_WINDOW ? raw : { count: 0, windowStart: now }
-    w.count++
-    await kv.put(rateKey, JSON.stringify(w), { expirationTtl: RATE_LIMIT_WINDOW })
-    if (w.count > RATE_LIMIT_MAX) {
-      // Still return generic 200 to prevent enumeration.
-      return { ok: true }
+    try {
+      const raw = await kv.get(rateKey, 'json') as { count: number; windowStart: number } | null
+      const w = raw && now - raw.windowStart < RATE_LIMIT_WINDOW ? raw : { count: 0, windowStart: now }
+      w.count++
+      await kv.put(rateKey, JSON.stringify(w), { expirationTtl: RATE_LIMIT_WINDOW })
+      if (w.count > RATE_LIMIT_MAX) {
+        return { ok: true } // generic, no enumeration
+      }
+    } catch {
+      // KV quota / transient error: do not block sign-in attempts.
     }
   }
 
@@ -56,12 +59,20 @@ export default defineEventHandler(async (event) => {
   const fullHash = await sha256Hex(`${token}:${nonce}:${email}`)
   const lookupHash = await sha256Hex(`${token}:${nonce}`)
 
-  // Two keys so the consume endpoint can find the email from token + nonce
-  // (without enumerating users), then verify via the email-bound full hash.
-  await Promise.all([
-    kv.put(`auth:token:${fullHash}`, JSON.stringify({ email, createdAt: now }), { expirationTtl: TOKEN_TTL_SECONDS }),
-    kv.put(`auth:lookup:${lookupHash}`, email, { expirationTtl: TOKEN_TTL_SECONDS })
-  ])
+  // Token storage is mandatory: without these two KV records, consume() cannot
+  // verify the link. If KV writes fail (e.g. daily quota exhausted on free
+  // plan) return a generic 200 so we never confirm/deny that the request was
+  // accepted, and skip the email so the user isn't sent a link that can't be
+  // consumed.
+  try {
+    await Promise.all([
+      kv.put(`auth:token:${fullHash}`, JSON.stringify({ email, createdAt: now }), { expirationTtl: TOKEN_TTL_SECONDS }),
+      kv.put(`auth:lookup:${lookupHash}`, email, { expirationTtl: TOKEN_TTL_SECONDS })
+    ])
+  } catch (e) {
+    console.warn('[auth/request] KV put failed, suppressing magic-link email:', e)
+    return { ok: true }
+  }
 
   // Look up the user; we send the email regardless of existence (no enumeration).
   const user = await queryOne<{ id: string }>(event, `SELECT id FROM users WHERE email = ? LIMIT 1`, [email])

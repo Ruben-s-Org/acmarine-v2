@@ -100,12 +100,14 @@ async function loadBroker(event: H3Event, subdomain: string): Promise<Broker | n
   const env = getEnv(event)
   const kv = env.KV as KVNamespace | undefined
 
+  // KV is best-effort. On free plan the daily write quota can run out, and
+  // a transient KV error must never break tenant resolution; D1 is the source
+  // of truth, KV is just a cache-aside.
   if (kv) {
-    const cached = await kv.get(KV_PREFIX + subdomain, 'json') as Broker | null
-    if (cached) return cached
-    if (cached === null) {
-      // explicit null sentinel for "known missing" was not set; fall through
-    }
+    try {
+      const cached = await kv.get(KV_PREFIX + subdomain, 'json') as Broker | null
+      if (cached) return cached
+    } catch {}
   }
 
   const row = await queryOne<Broker>(
@@ -114,13 +116,13 @@ async function loadBroker(event: H3Event, subdomain: string): Promise<Broker | n
     [subdomain]
   )
 
-  if (kv) {
-    if (row) {
+  // Only positive-cache. Negative caching exhausts the KV write budget for
+  // every random subdomain a crawler probes. D1 lookups for unknown subs are
+  // cheap (indexed point read) and acceptable.
+  if (kv && row) {
+    try {
       await kv.put(KV_PREFIX + subdomain, JSON.stringify(row), { expirationTtl: KV_TTL_SECONDS })
-    } else {
-      // Negative cache shorter to allow newly-approved brokers to appear soon.
-      await kv.put(KV_PREFIX + subdomain, 'null', { expirationTtl: 60 })
-    }
+    } catch {}
   }
 
   return row
@@ -129,7 +131,8 @@ async function loadBroker(event: H3Event, subdomain: string): Promise<Broker | n
 export async function invalidateTenantCache(event: H3Event, subdomain: string) {
   const env = getEnv(event)
   const kv = env.KV as KVNamespace | undefined
-  if (kv) await kv.delete(KV_PREFIX + subdomain)
+  if (!kv) return
+  try { await kv.delete(KV_PREFIX + subdomain) } catch {}
 }
 
 // Minimal type to avoid pulling @cloudflare/workers-types as a dep.

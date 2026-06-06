@@ -2,6 +2,12 @@
 import { useInquire } from '~/composables/useInquire'
 const { openDialog } = useInquire()
 
+// Dual-mode render: on a broker subdomain (e.g. brit.acmarine.co) we render
+// the broker microsite instead of the ACM landing. The apex (acmarine.co)
+// keeps the ACM landing unchanged.
+const tenant = await loadTenant()
+const isMicrosite = computed(() => tenant.isMicrosite && !!tenant.broker)
+
 useSeoMeta({
   title: 'Aldridge & Charles Marine | Captain-Owned Yacht Brokerage, Management & Crew in South Florida',
   description: 'Aldridge & Charles Marine is a captain-owned yachting firm based in South Florida. Yacht brokerage, management, detailing, charter, and crew placement.',
@@ -60,7 +66,8 @@ const services = [
 </script>
 
 <template>
-  <div>
+  <MicrositeHome v-if="isMicrosite" :broker="tenant.broker!" />
+  <div v-else>
     <!-- HERO -->
     <section class="hero-v1">
       <div class="hero-v1-inner">
